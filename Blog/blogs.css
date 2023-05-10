@@ -1,0 +1,118 @@
+#wrapper { 
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    word-wrap: break-word;
+}
+
+header { 
+    padding-top: 5px;
+    padding-right: 15px;
+}
+
+footer {
+    background-color: #e9eaee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body { 
+    background-color: #e9eaee;
+}
+
+nav { 
+    float: right;
+    position: relative;
+}
+
+ul { 
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.cue {
+    font-weight: bold;
+}
+
+li { 
+    float: right;
+}
+
+li a { 
+    font-size: 90%;
+    color: #000000;
+    text-align: center;
+    border-radius: 25px;
+    height: 20px;
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    position: relative;
+}
+
+h1 { 
+    color: #000000;
+    font-size: 250%;
+    width: 70%;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    margin: auto;
+}
+
+h2 a { 
+    color: #000000;
+    width: 70%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: auto;
+    text-decoration: none;
+}
+
+p { 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 120%;
+    color: #000000;
+    width: 70%;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+h2 {
+    width: 70%;
+    margin: auto;
+}
+
+h3 {
+    width: 70%;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+form {
+    width: 70%;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+p { 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 120%;
+    color: #000000;
+    width: 70%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+hr {
+    margin-top: 50px;
+    width: 70%
+}

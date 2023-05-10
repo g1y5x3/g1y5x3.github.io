@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Yixiang Gao's Pilot of Project</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="MLP_math.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<div id="wrapper">
+    <header>
+        <a href="Gao_project.html">
+            <img src="PilotSite/website_logo.jpg" alt="Home" height="150">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="Gao_project.html">Home</a></li>
+                <li><a href="about_me.html">About Me</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li class="cue"><a href="blogs.html">Blogs</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>A Mathematical Rundown for Multiple Layer Perceptron (MLP)</h1>
+
+    <p>This is a quick study notes of showing the MLP algorithm in pure mathematical form. Often times, these information were abstracted by the softwares people are using. In this notes, it will show how to compute the outputs of each layer from all the neurons by hand and through linear algebra to understand the computation process for forward passes and backward passes (backpropagation).</p> 
+
+    <p>It would be better if you are familiar with <a href="https://machinelearningmastery.com/gentle-introduction-linear-algebra/" target="_blank">Linear Algebra</a>.</p>
+    <p>To begin with, We first construct a simple MLP structure. Assume there are two inputs for each sample, one hidden layer with four neurons, and one output layer with only one neuron. No bias term just to keep it simple.</p>
+    <p><img src="PilotSite/multilayer_perceptron.svg" height="500"></p>
+    <p>We have totally 4 training datapoints in this example problem:</p>
+    <p><img src="PilotSite/eq2.png" height="120"></p>
+
+    <h2>Forward Computation</h2>
+    <p>First, initialize weights for all neurons, let's just use 0.5 for convenience. If we reprent all the weights to one single neuron by a vector, it would be look like the following</p>
+    <p><img src="PilotSite/eq1.png" height="30"></p>
+    <p>Use sigmoid as the activation function with <img src="PilotSite/eq3.png" height="15"></p>
+    <p><img src="PilotSite/eq4.png" height="60"></p>
+    <p>Thus, to obtain the output <img src="PilotSite/eq5.png" height="30"> we basically just need to compute the dot product of <img src="PilotSite/eq6.png" height="30"> and <img src="PilotSite/eq7.png" height="20"> and next plug into the sigmoid function</p>
+    <p><img src="PilotSite/eq8.png" height="60"></p>
+    <p>To be continued...</p>
+
+    <hr>
+    <h3>You can Contact Me</h2>
+    <form action="mailto:yg5d6@mail.missouri.com" method="post" enctype="text/plain">
+    Name:<br>
+    <input type="text" name="name"><br>
+    E-mail:<br>
+    <input type="text" name="mail"><br>
+    Comment:<br>
+    <input type="text" name="comment" size="80"><br><br>
+    <input type="submit" value="Send" size="80">
+    <input type="reset" value="Reset" size="80">
+    </form>
+
+    <footer>
+        &copy; Yixiang Gao &nbsp;Last Updated: 03/11/2019 &nbsp;<a href="mailto:yg5d6@mail.missouri.edu"><i class="material-icons" style="color: #000000">email</i></a> 
+    </footer>
+
+</div>
+</body>
+</html>
