@@ -3,9 +3,41 @@ body {
 }
 
 /* Navigation bar*/
-nav { 
-    float: right;
-    position: relative;
+.navbar {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the left menu items */
+.menu-left {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-left li {
+    font-size: 150%;
+    list-style-type: none;
+    margin-right: 20px; /* Adjust the spacing between menu items */
+}
+
+.menu-left a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-right {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-right a {
+    font-size: 150%;
+    margin-right: 10px; /* Adjust the spacing between menu items */
 }
 
 /* Bios */
@@ -19,17 +51,16 @@ nav {
 }
 
 /* Publications */
-li { 
+li {
     width: 70%;
     margin: auto;
     padding-bottom: 10px;
 }
 
 /* Headers */
-h1 { 
+h1 {
     font-size: 300%;
     width: 70%;
-    padding-top: 30px;
     padding-bottom: 30px;
     margin: auto;
 }
@@ -51,7 +82,7 @@ h3 {
 }
 
 /* Main paragraphs */
-p { 
+p {
     font-family: 'Times New Roman', Times, serif;
     font-size: 100%;
     width: 70%;
@@ -64,7 +95,7 @@ a {
 }
 
 a:link, a:visited {
-    color: blue;
+    color: rgb(0, 0, 255);
 }
 
 a:hover {
@@ -73,7 +104,7 @@ a:hover {
 
 /* Footers */
 footer {
-    background-color: #e9eaee;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -8,14 +8,16 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <nav>
-      <ul>
-        <a href={{ "index.html" | absolute_url }}><i class="fa fa-home" style="padding:10px; font-size:150%"></i></a>
-        <i class="fa-solid fa-blog" style="padding:10px; font-size:150%"></i>
-        <!-- <a href={{ "blog.html"  | absolute_url }}><i class="fa-solid fa-blog" style="padding:10px; font-size:150%"></i></a> -->
-        <a href="https://github.com/g1y5x3/"><i class="fa-brands fa-github" style="padding:10px; font-size:150%"></i></a>
-        <a href="https://twitter.com/g1y5x3"><i class="fa-brands fa-x-twitter" style="padding:10px; font-size:150%"></i></a>
-        <a href="https://www.linkedin.com/in/yixiang-gao-13a1408b/"><i class="fa-brands fa-linkedin" style="padding:10px; font-size:150%"></i></a>
+    <nav class="navbar">
+      <ul class="menu-left">
+        <li><a href={{ "index.html" | absolute_url }}>Home</a></li>
+        <li><a>Blog</a></li>  
+        <!-- href={{ "blog.html" | absolute_url }} -->
+      </ul>
+      <ul class="menu-right">
+        <a href="https://github.com/g1y5x3/" class="fa-brands fa-github"></a>
+        <a href="https://twitter.com/g1y5x3" class="fa-brands fa-x-twitter"></a>
+        <a href="https://www.linkedin.com/in/yixiang-gao-13a1408b/" class="fa-brands fa-linkedin"></a>
       </ul>
     </nav>
     <section>
