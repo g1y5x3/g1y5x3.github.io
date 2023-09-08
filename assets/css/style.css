@@ -22,6 +22,7 @@ nav {
 li { 
     width: 70%;
     margin: auto;
+    padding-bottom: 10px;
 }
 
 /* Headers */
