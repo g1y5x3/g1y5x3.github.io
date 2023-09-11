@@ -4,7 +4,7 @@ layout: default
 ---
 
 # Yixiang Gao
-<img src="assets/images/hawaii_embc_2018.jpg" alt="profile image" width="15%">
+<img src="assets/images/hawaii_embc_2018.jpg" alt="profile image" width="200px">
 
 ## Bios ([CV](assets/files/Yixiang_CV.pdf))
 
@@ -22,8 +22,8 @@ layout: default
   Department of Electrical Engineering and Computer Science<br>
   University of Missouri - Columbia
 </div>
-<div style="display: inline-block; width: 20%;">
-    <img src="assets/images/vigir.jpg" alt="ViGIR" width="50%">
+<div class="bioimg">
+    <img src="assets/images/vigir.jpg" alt="ViGIR" width="200px">
 </div>
 
 ### 2014 - 2016
@@ -35,8 +35,8 @@ layout: default
     Department of Electrical Engineering and Computer Science<br>
     University of Missouri - Columbia
 </div>
-<div style="display: inline-block; width: 10%;">
-    <img src="assets/images/MU_logo.svg" alt="Mizzou" width="30%">
+<div class="bioimg">
+    <img src="assets/images/MU_logo.svg" alt="Mizzou" width="60px">
 </div>
 
 ## Publications ([Google Scholar](https://scholar.google.com/citations?user=sXAhTcEAAAAJ&hl=en))

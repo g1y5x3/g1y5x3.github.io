@@ -1,14 +1,18 @@
 body { 
+    width: 70%;
+    padding-left:  30px;
+    padding-right: 30px;
+    margin: auto;
+    font-family: 'Times New Roman', Times, serif;
     background-color: #e9eaee;
 }
 
 /* Navigation bar*/
 .navbar {
-    width: 70%;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 10px;
 }
 
 /* Style the left menu items */
@@ -21,7 +25,7 @@ body {
 .menu-left li {
     font-size: 150%;
     list-style-type: none;
-    margin-right: 20px; /* Adjust the spacing between menu items */
+    margin-right: 20px;
 }
 
 .menu-left a {
@@ -35,39 +39,41 @@ body {
     padding: 0;
 }
 
-.menu-right a {
+.menu-right li {
     font-size: 150%;
-    margin-right: 10px; /* Adjust the spacing between menu items */
+    list-style-type: none;
+    margin-left: 10px;
 }
 
 /* Bios */
 .bio {
+    width: 60%;
     display:inline-block;
     vertical-align:top;
-    width: 50%;
-    padding-left: 15%;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 100%;
+    text-align: left;
+}
+
+.bioimg {
+    width: 35%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
 }
 
 /* Publications */
 li {
-    width: 70%;
-    margin: auto;
     padding-bottom: 10px;
 }
 
 /* Headers */
 h1 {
     font-size: 300%;
-    width: 70%;
     padding-bottom: 30px;
     margin: auto;
 }
 
 h2 {
     font-size: 200%;
-    width: 70%;
     padding-top: 20px;
     padding-bottom: 20px;
     margin: auto;
@@ -75,7 +81,6 @@ h2 {
 
 h3 {
     font-size: 150%;
-    width: 70%;
     padding-top: 10px;
     padding-bottom: 10px;
     margin: auto;
@@ -83,9 +88,6 @@ h3 {
 
 /* Main paragraphs */
 p {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 100%;
-    width: 70%;
     margin: auto;
 }
 
@@ -104,8 +106,13 @@ a:hover {
 
 /* Footers */
 footer {
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
 }
