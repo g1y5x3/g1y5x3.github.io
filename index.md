@@ -1,6 +1,6 @@
 ---
-title: Yixiang Gao
 layout: default
+title: Yixiang Gao
 ---
 
 # Yixiang Gao

@@ -11,20 +11,19 @@
     <nav class="navbar">
       <ul class="menu-left">
         <li><a href={{ "index.html" | absolute_url }}>Home</a></li>
-        <li><a>Blog</a></li>  
-        <!-- href={{ "blog.html" | absolute_url }} -->
+        <li><a href={{ "blog.html" | absolute_url }}>Blog</a></li>
       </ul>
       <ul class="menu-right">
-        <li><a href="https://github.com/g1y5x3/" class="fa-brands fa-github"></a></li>
-        <li><a href="https://twitter.com/g1y5x3" class="fa-brands fa-x-twitter"></a></li>
-        <li><a href="https://www.linkedin.com/in/yixiang-gao-13a1408b/" class="fa-brands fa-linkedin"></a></li>
+        <li><a href="https://github.com/g1y5x3/" class="fa-brands fa-github" target="_blank"></a></li>
+        <li><a href="https://twitter.com/g1y5x3" class="fa-brands fa-x-twitter" target="_blank"></a></li>
+        <li><a href="https://www.linkedin.com/in/yixiang-gao-13a1408b/" class="fa-brands fa-linkedin" target="_blank"></a></li>
       </ul>
     </nav>
     <section>
-      {{ content }}
+    {{ content }}
     </section>
     <footer>
-      <p>Powered by <a href="https://jekyllrb.com/">Jekyll</a>, &copy; Yixiang Gao <a href="mailto:yixiangg310573@gmail.com" class="fa-solid fa-envelope" style="color: white;" target="_blank"></a></p>
+      <p>Powered by <a href="https://jekyllrb.com/">Jekyll</a>, &copy; Yixiang Gao <a href="mailto:yixiangg310573@gmail.com" class="fa-solid fa-envelope" target="_blank"></a></p>
     </footer>
   </body>
 </html>
