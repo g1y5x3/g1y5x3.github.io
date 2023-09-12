@@ -3,8 +3,9 @@ body {
     padding-left:  30px;
     padding-right: 30px;
     margin: auto;
+    line-height: 1.5;
     font-family: Helvetica;
-    background-color: #e9eaee;
+    background-color: #f2f2f2;
 }
 
 /* Navigation bar*/

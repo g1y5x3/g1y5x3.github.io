@@ -11,16 +11,16 @@ title: Yixiang Gao
 ### 2016 - Current
 <div class="bio">
   <b>
-    Ph.D. candidate Electrical and Computer Engineering
+    Ph.D. Candidate Electrical and Computer Engineering
   </b><br>
+  <a href="http://vigir.missouri.edu/">Vision-Guided and Intelligent Robotics Labotory</a><br>
+  University of Missouri - Columbia<br>
+
   <i>
     <b>Supervisor:</b> <a href="https://engineering.missouri.edu/faculty/guilherme-desouza/">Dr. Guilherme (Gui) N. DeSouza</a><br>
     <b>Research:</b> AI, Machine Learning, Computer Vision, Robotics, Voice Pathology<br>
     <b>Thesis:</b> Confounded Predictions in Machine Learning - Detect, quantify and mitigate confounding bias in machine learning applications. From medical predictive models to general deep learning models.
   </i><br>
-  <a href="http://vigir.missouri.edu/">Vision-Guided and Intelligent Robotics Labotory</a><br>
-  Department of Electrical Engineering and Computer Science<br>
-  University of Missouri - Columbia
 </div>
 <div class="bioimg">
     <img src="assets/images/vigir.jpg" alt="ViGIR" width="200px">
@@ -32,8 +32,7 @@ title: Yixiang Gao
         B.S. Computer Engineering<br>
         B.S. Electrical Engineering
     </b><br>
-    Department of Electrical Engineering and Computer Science<br>
-    University of Missouri - Columbia
+    University of Missouri - Columbia<br>
 </div>
 <div class="bioimg">
     <img src="assets/images/MU_logo.svg" alt="Mizzou" width="60px">
