@@ -3,6 +3,7 @@ body {
     padding-left:  30px;
     padding-right: 30px;
     margin: auto;
+    font-size: 100%;
     line-height: 1.5;
     font-family: Helvetica;
     background-color: #f2f2f2;
@@ -44,21 +45,6 @@ body {
     font-size: 150%;
     list-style-type: none;
     margin-left: 10px;
-}
-
-/* Bios */
-.bio {
-    width: 60%;
-    display:inline-block;
-    vertical-align:top;
-    text-align: left;
-}
-
-.bioimg {
-    width: 35%;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
 }
 
 /* Publications */
