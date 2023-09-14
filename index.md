@@ -10,7 +10,7 @@ title: Yixiang Gao
 
 ### 2016 - Current
 
-<img style="padding-bottom: 10px;" src="assets/images/vigir.jpg" alt="ViGIR" height="50px">
+<img style="padding-bottom: 10px;" src="assets/images/vigir.jpg" alt="ViGIR" height="60px">
 
 **Ph.D. Candidate Electrical and Computer Engineering**
 
@@ -27,7 +27,7 @@ University of Missouri - Columbia
 
 ### 2014 - 2016
 
-<img style="padding-bottom: 10px;" src="assets/images/MU_logo.svg" alt="Mizzou" height="50px">
+<img style="padding-bottom: 10px;" src="assets/images/MU_logo.svg" alt="Mizzou" height="60px">
 
 **B.S. Computer Engineering & B.S. Electrical Engineering**
 
