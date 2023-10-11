@@ -52,13 +52,13 @@ University of Missouri - Columbia<br>
 
   _IEEE Symposium Series on Computational Intelligence (SSCI), 2019_
 
-  J. Demby’s, **Y. Gao**, A. Shafiekhani, and G. N. DeSouza
+  _J. Demby’s, **Y. Gao**, A. Shafiekhani, and G. N. DeSouza_
 
 * [A Study on Solving the Inverse Kinematics of Serial Robots using Artificial Neural Network and Fuzzy Neural Network](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8858872&isnumber=8858787)
 
   _IEEE International Conference on Fuzzy Systems (FUZZ-IEEE), 2019_
 
-  J. Demby’s, **Y. Gao** and G. N. DeSouza
+  _J. Demby’s, **Y. Gao** and G. N. DeSouza_
 
 * [Classification of sEMG Signals for the Detection of Vocal Fatigue based on VFI Scores](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8513224&isnumber=8512178)
 
