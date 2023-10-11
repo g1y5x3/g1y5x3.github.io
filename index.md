@@ -35,7 +35,7 @@ University of Missouri - Columbia<br>
 
 ## Publications ([Google Scholar](https://scholar.google.com/citations?user=sXAhTcEAAAAJ&hl=en))
 
-* Removal of Confounding Factors using GA-SVM Feature Adaptation: Application on Detection of Vocal Fatigue thru sEMG Classification
+* [Removal of Confounding Factors using GA-SVM Feature Adaptation: Application on Detection of Vocal Fatigue thru sEMG Classification](https://ieeexplore.ieee.org/abstract/document/10253983)
 
   _IEEE Congress on Evolutionary Computation (CEC), 2023_
 
