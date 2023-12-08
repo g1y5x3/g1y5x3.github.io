@@ -33,7 +33,7 @@ University of Missouri - Columbia
 
 University of Missouri - Columbia<br>
 
-## Publications ([Google Scholar](https://scholar.google.com/citations?user=sXAhTcEAAAAJ&hl=en))
+## Publications ([Google Scholar](https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en))
 
 * [Removal of Confounding Factors using GA-SVM Feature Adaptation: Application on Detection of Vocal Fatigue thru sEMG Classification](https://ieeexplore.ieee.org/abstract/document/10253983)
 
