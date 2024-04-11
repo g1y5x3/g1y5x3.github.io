@@ -8,7 +8,7 @@ title: Yixiang Gao
 
 ## Bios ([CV](assets/files/Yixiang_CV.pdf))
 
-### 2016 - Current
+### 2017 - Current
 
 <img style="padding-bottom: 10px;" src="assets/images/vigir.jpg" alt="ViGIR" height="60px">
 
@@ -25,7 +25,7 @@ University of Missouri - Columbia
 **Thesis:** Confounded Predictions in Machine Learning - Detect, quantify and mitigate confounding bias in machine learning applications. From medical predictive models to general deep learning models.
 
 
-### 2014 - 2016
+### 2014 - 2017
 
 <img style="padding-bottom: 10px;" src="assets/images/MU_logo.svg" alt="Mizzou" height="60px">
 
