@@ -41,6 +41,15 @@ University of Missouri - Columbia<br>
 
   _R. Farag, P. Upadhyay, **Y. Gao**, J. Demby's, K. G. Montoya, S. M. Ali Tousi, G. Omotara, G. N. DeSouza_
 
+  [Accepted]
+
+* Voice sEMG classification of sentences for vocal fatigue detection using GA-SVM for confounder
+
+  _13th International Conference on Voice Physiology and Biomechanics (ICVPB), 2024_
+
+  _**Y. Gao**, G. N. DeSouza, M. Berardi, and M. Dietrich_
+
+  [Accepted]
 
 * [Removal of Confounding Factors using GA-SVM Feature Adaptation: Application on Detection of Vocal Fatigue thru sEMG Classification](https://ieeexplore.ieee.org/abstract/document/10253983)
 
@@ -48,8 +57,19 @@ University of Missouri - Columbia<br>
 
   _**Y. Gao**, M. Berardi, M. Dietrich, and G. N. DeSouza_
 
-* [Classification of vocal fatigue using sEMG: Data Imbalance, Normalization, and the Role of Vocal Fatigue Index Scores](https://www.mdpi.com/2076-3417/11/10/4335)
+* Classification of vocal fatigue using neck semg with leave-one-subject-out testing
 
+  _The 14th Advances in Quantitative Laryngology, Voice and Speech Research (AQL), 2021_
+
+  _**Y. Gao**, M. Dietrich, and G. N. DeSouza_
+
+* Explore voice production variability through neck semg clustering - challenge for accurate labeling of vocal fatigue
+
+  _The 14th Advances in Quantitative Laryngology, Voice and Speech Research (AQL), 2021_
+
+  _**Y. Gao**, M. Dietrich, and G. N. DeSouza_
+
+* [Classification of vocal fatigue using sEMG: Data Imbalance, Normalization, and the Role of Vocal Fatigue Index Scores](https://www.mdpi.com/2076-3417/11/10/4335)
 
   _Applied Sciences, 2021_
 
@@ -67,37 +87,17 @@ University of Missouri - Columbia<br>
 
   _J. Demby’s, **Y. Gao** and G. N. DeSouza_
 
-* [Classification of sEMG Signals for the Detection of Vocal Fatigue based on VFI Scores](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8513224&isnumber=8512178)
-
-  _International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC), 2018_
-
-  _**Y. Gao**, M. Dietrich, M. Pfeiffer and G. N. DeSouza_
-
-## Selected Conference Presentations
-
-* Feature adaptation with ga-svm for confounding removal - an application on vocal fatigue detection using semg classification
-
-  _The 15th Advances in Quantitative Laryngology, Voice and Speech Research (AQL), 2023_
-
-  _**Y. Gao**, M. Berardi, M. Dietrich, and G. N. DeSouza_
-
-* Classification of vocal fatigue using neck semg with leave-one-subject-out testing
-
-  _The 14th Advances in Quantitative Laryngology, Voice and Speech Research (AQL), 2021_
-
-  _**Y. Gao**, M. Dietrich, and G. N. DeSouza_
-
-* Explore voice production variability through neck semg clustering - challenge for accurate labeling of vocal fatigue
-
-  _The 14th Advances in Quantitative Laryngology, Voice and Speech Research (AQL), 2021_
-
-  _**Y. Gao**, M. Dietrich, and G. N. DeSouza_
-
 * Classification of vocal gestures extracted from quasi-daily sentences to detect vocal fatigue
 
   _The 13th Advances in Quantitative Laryngology, Voice and Speech Research (AQL), 2019_
 
   _**Y. Gao**, M. Dietrich, M. Pfeiffier, A. Walker, and G. N. DeSouza_
+
+* [Classification of sEMG Signals for the Detection of Vocal Fatigue based on VFI Scores](http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8513224&isnumber=8512178)
+
+  _International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC), 2018_
+
+  _**Y. Gao**, M. Dietrich, M. Pfeiffer and G. N. DeSouza_
 
 * Classification of neck surface emg signals for the early detection of vocal dysfunction
 
