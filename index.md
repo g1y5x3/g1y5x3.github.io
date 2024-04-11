@@ -35,6 +35,13 @@ University of Missouri - Columbia<br>
 
 ## Publications ([Google Scholar](https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en))
 
+* [iCOVID-19 detection from pulmonary CT scans using a novel EfficientNet with attention mechanism](https://arxiv.org/abs/2403.11505)
+
+  _The IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), 2024_
+
+  _R. Farag, P. Upadhyay, **Y. Gao**, J. Demby's, K. G. Montoya, S. M. Ali Tousi, G. Omotara, G. N. DeSouza_
+
+
 * [Removal of Confounding Factors using GA-SVM Feature Adaptation: Application on Detection of Vocal Fatigue thru sEMG Classification](https://ieeexplore.ieee.org/abstract/document/10253983)
 
   _IEEE Congress on Evolutionary Computation (CEC), 2023_
