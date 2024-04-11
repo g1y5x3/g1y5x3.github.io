@@ -35,7 +35,7 @@ University of Missouri - Columbia<br>
 
 ## Publications ([Google Scholar](https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en))
 
-* [iCOVID-19 detection from pulmonary CT scans using a novel EfficientNet with attention mechanism](https://arxiv.org/abs/2403.11505)
+* [COVID-19 detection from pulmonary CT scans using a novel EfficientNet with attention mechanism](https://arxiv.org/abs/2403.11505)
 
   _The IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), 2024_
 
