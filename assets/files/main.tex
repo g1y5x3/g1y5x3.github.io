@@ -1,0 +1,323 @@
+%------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+% Resume in Latex
+% Author : Shubham Mazumder
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+%------------------------------------------------------------------------------
+\documentclass[letterpaper,10pt]{article}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{soul}
+\input{glyphtounicode}
+\usepackage[margin=0.5in]{geometry}
+
+%----------FONT OPTIONS----------
+% Sans-serif Fonts
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault,light]{inter}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage{roboto}
+% \usepackage[sfdefault,medium]{InriaSans}
+\usepackage[default]{sourcesanspro}
+
+% Serif Fonts
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+% Setting for Publications
+\usepackage[style=ieee, sorting=ydnt]{biblatex}
+\setlength\bibitemsep{1\itemsep}
+\addbibresource{publication.bib}
+
+% -------------------------------------
+%----------PAGE SETUP------------------
+% -------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+% \addtolength{\oddsidemargin}{0.5pt}
+% \addtolength{\evensidemargin}{0.5pt}
+% \addtolength{\textwidth}{0.9in}
+% \addtolength{\topmargin}{-0.6in}
+% \addtolength{\textheight}{1.6in}
+
+% \addtolength{\oddsidemargin}{-.875in}
+% \addtolength{\evensidemargin}{-.875in}
+% \addtolength{\textwidth}{1.75in}
+% \addtolength{\topmargin}{-.875in}
+% \addtolength{\textheight}{1.75in}
+
+% URL style
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+% ----------- Definitions -----------------------
+\def\spaceforrole{ }
+\definecolor{lightyellow}{cmyk}{0.00, 0.05, 0.20, 0.00} % Highlights
+\sethlcolor{lightyellow} % Highlights
+
+%--------------- Custom commands -----------------------
+
+\newcommand{\sectionspace}{
+\vspace{-20pt}
+}
+
+\newcommand{\subheadingtitlevspace}{
+\vspace{-3pt}
+}
+
+
+% Resume Item
+\newcommand{\resumeItem}[1]{
+  \item{
+    {#1 \vspace{-4pt}}
+  }
+}
+
+% Titles
+\newcommand{\titleItem}[1]{
+  % \textsl{\textbf{#1}}
+  \textbf{#1}
+}
+
+
+% Highlighting
+\newcommand{\highlight}[1]{
+  \textsl{\textbf{#1}}
+  % \hl{\textsl{\textbf{#1}}}
+  % \textbf{#1}
+  % \textsl{\hl{#1}}
+}
+
+% Resume Subheading
+\newcommand{\resumeSubheading}[4]{
+  \item
+     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}l@{}l}     
+      {#1} & \titleItem{#3} | {#2} & \textit{#4}\\
+    \end{tabular*}\vspace{-10pt}
+}
+
+\newcommand{\resumeSubheadingalt}[3]{
+  \item
+     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}l@{}l}     
+      {#1} & \titleItem{#2} & \textit{#3}\\
+    \end{tabular*}\vspace{-10pt}
+}
+% \newcommand{\resumeSubheading}[4]{
+%   \item
+%     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+%       \textbf{#1} & #2 \\
+%       \textit{#3} & \textit{#4} \\
+%     \end{tabular*}\vspace{-8pt}
+% }
+
+
+
+% Resume Sub-sub heading
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{#1} & \textit{#2} \\
+    \end{tabular*}\vspace{-2pt}
+}
+
+% Resume Project Heading
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      #1 & \textit{ #2} \\
+    \end{tabular*}\vspace{-9pt}
+}
+
+%Resume Subheading List
+\newcommand{\resumeSubHeadingListStart}{\subheadingtitlevspace\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+%Resume Item List
+\newcommand{\resumeItemListStart}{
+% \vspace{-1pt}
+\begin{itemize}}
+\newcommand{\resumeItemListEnd}{
+% \vspace{-6pt}
+\end{itemize}\vspace{-8pt}}
+
+%-------------------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------------
+
+\begin{document}
+
+% -------------------------------------
+%----------HEADING---------------------
+% -------------------------------------
+
+\begin{flushleft}
+    \textbf{\large Yixiang Gao} \\    
+    \textit{PhD, Electrical and Computer Engineering} \\ 
+    \textit{573-825-1296} $|$  
+    \href{mailto:yg5d6@mail.missouri.edu}{{\textit{yg5d6@mail.missouri.edu}}} $|$ 
+    \href{https://github.com/g1y5x3/}{{\textit{https://github.com/g1y5x3/}}} $|$
+    \href{https://www.linkedin.com/in/yixiang-gao-13a1408b/}{{\textit{https://www.linkedin.com/in/yixiang-gao-13a1408b/}}} \\
+    \href{https://g1y5x3.github.io}{{\textit{My website: https://g1y5x3.github.io}}}
+\end{flushleft}
+
+% -------------------------------------
+%---------- PROFESSIONAL SUMMARY ------
+% -------------------------------------
+
+\section{Professional Summary}
+\begin{itemize}[leftmargin=0.15in, label={}]
+    {\item{
+     {AI/ML researcher with a Ph.D in Electrical Engineering and Computer Science, distinguished for collaborative research in a cross-disciplinary team and independently delivering meaningful results that lead to publications. Experienced in research topics such as deep learning, computer vision, robotics, and pattern recognition. Proud contributor of the open source AI community and believing in the democratization of AI from software to hardware. Actively engaged in the development of large language models and vision-language models.} \\      
+    }}
+\end{itemize}
+\sectionspace
+\vspace{5pt}
+
+% -------------------------------------
+%----------HEADING---------------------
+% -------------------------------------
+
+%\section{Awards and Certifications}
+%    \resumeSubHeadingListStart
+%      \resumeProjectHeading
+%          {\titleItem{Star Award} \emph{ $|$ Company 1}}{September 2018}
+%      \resumeProjectHeading
+%          {\titleItem{Kudos Award} \emph{ $|$ Company 2}}{May 2017}
+%      \resumeProjectHeading
+%          {\titleItem{IBM Full Stack Software Developer} \emph{$|$ IBM}}{November 2023}
+%          \resumeProjectHeading
+%          {\titleItem{CompTia Sec+} \emph{$|$ CompTia}}{December 2023}
+%    \resumeSubHeadingListEnd
+
+% -------------------------------------
+%----------TECHNICAL SKILLS------------
+% -------------------------------------
+
+\section{Technical Skills}
+\subheadingtitlevspace
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    {\item{
+     \titleItem{Languages}{: Python, CUDA/C/C++, Matlab, HTML} \\
+     \titleItem{Libraries}{: pytorch, scikit-learn, tinygrad, transformers, ultralytics, mmdet, ROS, ONNX} \\
+     \titleItem{DevOps and API Tools}{: Git, Docker, Kubernetes, Github Actions} \\
+     \titleItem{Languages}{: English, Chinese} \\
+     \titleItem{Research}{: Deep Learning, Computer Vision, Object Recognition, Robotics, Speech Processing, sEMG Pattern Recognition, Machine Learning on Embedded Devices}
+    }}
+ \end{itemize}
+\sectionspace
+\vspace{5pt}
+
+% -------------------------------------
+%----------EXPERIENCE------------------
+% -------------------------------------
+\section{Experience}
+  \resumeSubHeadingListStart
+      \resumeProjectHeading
+           {\titleItem{{Graduate Research Assistant}} $|$ \emph{University of Missouri - Columbia}}{July 2017 -- (Expected) July 2024}
+      \vspace{2.5pt}
+      \resumeItemListStart
+        \resumeItem{Thesis: Confounded predictions in machine learning - detect, quantify, and mitigate confounding factors in machine learning and deep learning models.}
+        \resumeItem{Built deep learning machine learning tools to analyze voice acoustic signals, sEMG, and fMRI images to understand neurological and biological causes for muscle tension voice disorders}
+        \resumeItem{Developed the data collection protocol, assembled the hardware, and built the software for this study of early stage vocal fatigue detection using sEMG signals. Later developed classifiers such as SVM, MLP, and CNN to detect vocal fatigue from collected data.}
+        \resumeItem{Built the first iteration of SpotMicro - an open-source quadruped robot for the Robotics club. Integrated the hardware with ROS kinetic operated on a Raspberry Pi 4.}
+      \resumeItemListEnd
+      \vspace{2.5pt}
+
+    \resumeProjectHeading
+           {\titleItem{{Graduate Teaching Assistant}} $|$ \emph{University of Missouri - Columbia}}{July 2017 -- March 2019}
+      \vspace{2.5pt}
+      \resumeItemListStart
+        \resumeItem{Microprocessor Engineering}
+        \resumeItem{Software Design in C and C++}
+        \resumeItemListEnd
+      \vspace{2.5pt}
+  \resumeSubHeadingListEnd
+
+% -------------------------------------
+%----------EDUCATION-------------------
+% -------------------------------------
+
+% \section{Education}
+%   \resumeSubHeadingListStart
+%     \resumeSubheading
+%       {University of Utah}{Salt Lake City, UT}
+%       {MS in Computer Science | GPA: 3.86}{January 2021 -- December 2023} 
+%     \resumeSubheading
+%       {SRM University}{Chennai, TN, India}
+%       {Bachelor of Technology in Computer Science and Engineering | GPA: 3.4}{August 2012 -- May 2016}
+%   \resumeSubHeadingListEnd
+% \vspace{-12pt}
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheadingalt
+      {University of Missouri - Columbia}
+      {Ph.D in Electrical and Computer Science}{July 2017 -- (Expected) July 2024} 
+    \resumeSubheadingalt
+      {University of Missouri - Columbia}
+      {BS in Electrical Engineering}{Jan 2014 -- May 2017}
+    \resumeSubheadingalt
+      {University of Missouri - Columbia}
+      {BS in Computer Engineering}{Jan 2014 -- May 2017}     
+  \resumeSubHeadingListEnd
+
+% -------------------------------------
+%----------PROJECTS--------------------
+% -------------------------------------
+
+     %\resumeSubHeadingListStart
+     %   \resumeProjectHeading
+     %      {\titleItem{Project 1} $|$ \emph{Django, IBM Cloud, SQLite, Function-as-a-Service, Kubernetes, OpenShift}}{Nov 2023}
+     %       \resumeItemListStart
+     %       \resumeItem{In cursus turpis massa tincidunt dui. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Suspendisse potenti nullam ac tortor. }
+     %       \resumeItem{Ut consequat semper viverra nam libero justo laoreet sit amet. Feugiat nisl pretium fusce id velit ut tortor pretium.}
+     %      \resumeItemListEnd
+     %  \resumeProjectHeading
+     %      {\titleItem{Project 2} $|$ \emph{Python, numpy. D3.js}}{Spring 2022}
+     %       \resumeItemListStart
+     %       \resumeItem{Ut consequat semper viverra nam libero justo laoreet sit amet. Feugiat nisl pretium fusce id velit ut tortor pretium.} 
+     %       \resumeItem{In cursus turpis massa tincidunt dui. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Suspendisse potenti nullam ac tortor. }
+     %      \resumeItemListEnd
+     %  \resumeProjectHeading
+     %      {\titleItem{Project 3} $|$ \emph{\LaTeX}}{November 2021}
+     %       \resumeItemListStart
+     %       \resumeItem{In cursus turpis massa tincidunt dui. Cras pulvinar mattis nunc sed blandit libero volutpat sed. Suspendisse potenti nullam ac tortor. }
+     %      \resumeItemListEnd
+     %\resumeSubHeadingListEnd
+
+\nocite{*}
+\printbibliography[type=inproceedings,title={Publications}]
+
+%-------------------------------------------
+\end{document}
