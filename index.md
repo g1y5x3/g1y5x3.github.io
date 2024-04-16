@@ -4,12 +4,21 @@ title: Yixiang Gao
 ---
 
 # Yixiang Gao
-<img src="assets/images/hawaii_embc_2018.jpg" alt="profile image" width="200px">
+<div style="display: grid; align-items: left; grid-template-columns: 1fr 1fr 1fr;">
+  <img src="assets/images/hawaii_embc_2018.jpg" alt="profile image" width="200px">
+  <p>
+    I am a Ph.D candidate from University of Missouri - Columbia under the
+    supervision of Dr. Gui DeSouza. My research is about detect, quantify and
+    mitigate confounding factors in machine learning models with a specific
+    focus on the applications of voice pathology. I am familiar with the topics
+    such as computer vision, robotics  and of the development of large lange
+    models and vision-language models.
+  </p>
+</div>
 
 ## Bios ([CV](assets/files/Yixiang_CV.pdf))
 
 ### 2017 - Current
-
 <img style="padding-bottom: 10px;" src="assets/images/vigir.jpg" alt="ViGIR" height="60px">
 
 **Ph.D. Candidate Electrical and Computer Engineering**
@@ -104,9 +113,3 @@ University of Missouri - Columbia<br>
   _The 12th Advances in Quantitative Laryngology, Voice and Speech Research (AQL), 2017_
 
   _**Y. Gao**, M. Pfeiffier, M. Dietrich, and G. N. DeSouza_
-
-<!--
-You can use HTML elements in Markdown, such as the comment element, and they won't
-be affected by a markdown parser. However, if you create an HTML element in your
-markdown file, you cannot use markdown syntax within that element's contents.
--->
