@@ -8,14 +8,12 @@ title: Yixiang Gao
   <img src="assets/images/hawaii_embc_2018.jpg" alt="profile image" width="200px">
   <p>
     I am a Ph.D candidate from University of Missouri - Columbia under the
-    supervision of Dr. Gui DeSouza at Vision-Guided and Intelligent Robotics
-    Laboratory. My research is about detect, quantify and mitigate confounding
-    factors in machine learning models with a specific focus on the applications
-    of voice pathology. However, my research interests include the topic such as
-    computer vision, pattern recognition, and robotics etc.
-    I am excited about this next generation of AI techonologies like LLMs,
-    VLMs, foundation models and I am passionate about building, developmenting
-    and understanding them.
+    supervision of <b>Dr. Gui DeSouza</b> at <b>Vision-Guided and Intelligent Robotics
+    Laboratory</b>. My research topic is about detecting, quantifying and mitigating confounding
+    factors in machine learning and deep learning models with a specific focus on the applications
+    in voice pathology. My research interests include computer vision, pattern recognition, and robotics.
+    I am passionate about building the best and most accessible open-sourced LLMs, VLMs, and foundation
+    models that can benefit the humanity.
   </p>
 </div>
 
