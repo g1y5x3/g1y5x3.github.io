@@ -4,16 +4,17 @@ title: Yixiang Gao
 ---
 
 # Yixiang Gao
-<div style="display: grid; align-items: left; grid-template-columns: 1fr 1fr 1fr;">
+<div style="display: grid; align-items: left; grid-template-columns: 1fr 4fr;">
   <img src="assets/images/hawaii_embc_2018.jpg" alt="profile image" width="200px">
   <p>
     I am a Ph.D candidate from University of Missouri - Columbia under the
-    supervision of <b>Dr. Gui DeSouza</b> at <b>Vision-Guided and Intelligent Robotics
-    Laboratory</b>. My research topic is about detecting, quantifying and mitigating confounding
-    factors in machine learning and deep learning models with a specific focus on the applications
-    in voice pathology. My research interests include computer vision, pattern recognition, and robotics.
-    I am passionate about building the best and most accessible open-sourced LLMs, VLMs, and foundation
-    models that can benefit the humanity.
+    supervision of <b>Dr. Gui DeSouza</b> at <b>ViGIR</b> (Vision-Guided and
+    Intelligent Robotics Laboratory). My Ph.D career was funded by two NIH
+    granst (R015 and R01) which gave me opportunities to collaborate with
+    speech and language pathologists to apply state-of-the-art machine learning
+    techniques into the voice pathology domain. My research have been published
+    in engineering conferences (EMBC, CEC) and clinical/medical conferences
+    (AQL, ICVPB) and scientific journals (Applied Sciences).
   </p>
 </div>
 
@@ -32,7 +33,7 @@ University of Missouri - Columbia
 
 **Research:** AI, Machine Learning, Computer Vision, Robotics, Voice Pathology
 
-**Thesis:** Confounded Predictions in Machine Learning - Detect, quantify and mitigate confounding bias in machine learning applications. From medical predictive models to general deep learning models.
+**Thesis:** Confounded Predictions in Machine Learning - Detect, quantify and mitigate confounding bias in machine learning applications.
 
 
 ### 2014 - 2017
