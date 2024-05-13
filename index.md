@@ -14,7 +14,9 @@ title: Yixiang Gao
     speech and language pathologists to apply state-of-the-art machine learning
     techniques into the voice pathology domain. My research have been published
     in engineering conferences (EMBC, CEC) and clinical/medical conferences
-    (AQL, ICVPB) and scientific journals (Applied Sciences).
+    (AQL, ICVPB) and scientific journals (Applied Sciences). I'm also genuinely
+    interested in other research topics such as computer vision, object
+    detection, and vision-language models to help expand my research horizon.
   </p>
 </div>
 
