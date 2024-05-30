@@ -47,28 +47,34 @@ body {
     margin-left: 10px;
 }
 
-/* Publications */
 li {
     padding-bottom: 10px;
 }
 
 /* Headers */
 h1 {
-    font-size: 300%;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    font-size: 250%;
+    padding-top: 25px;
+    padding-bottom: 25px;
     margin: auto;
 }
 
 h2 {
-    font-size: 225%;
+    font-size: 200%;
     padding-top: 20px;
     padding-bottom: 20px;
     margin: auto;
 }
 
 h3 {
-    font-size: 125%;
+    font-size: 150%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: auto;
+}
+
+h3 {
+    font-size: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
     margin: auto;
@@ -76,29 +82,33 @@ h3 {
 
 /* Main paragraphs */
 p {
-    padding-top: 20px;
-    margin-top: 20px;
     margin: auto;
 }
 
 .post-date {
     font-family: helvetica, sans-serif;
-    font-size: 15px;
 }
 
 .post-content {
     font-family: helvetica, sans-serif;
-    font-size: 20px;
+}
+
+.post-content p {
+    padding-top: 20px;
+    font-family: helvetica, sans-serif;
+}
+
+.caption {
+    font-style: italic; 
+    color: gray;
 }
 
 table {
     margin-top: 20px;
-    margin-bottom: -20px;
     color: #666666;
     border: 2px solid;
     border-color: #666666;
     border-spacing: 10px;
-    font-size: 20px;
 }
 
 code {
