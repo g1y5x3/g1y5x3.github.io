@@ -20,9 +20,9 @@ However, what's more interesting and exciting this time is that they also releas
 [Phi-3-vision](https://huggingface.co/microsoft/Phi-3-vision-128k-instruct)
 which is a 4.2B model that takes both text and image as input for chat applications.
 
-- text and image preprocessor
-- image embedding and token merging
-- transformer decoder
+- Text and Image Preprocessor
+- Image Embedding and Token Merging
+- Transformer Decoder
 
 ## Text and Image Preprocessor
 In order to use [CLIPVisionModel](https://huggingface.co/docs/transformers/en/model_doc/clip#transformers.CLIPVisionModel) as the image tokenizer, the size for
@@ -34,12 +34,12 @@ To enable training with higher resolution images, the methods in [InternLM-XComp
 image is resized, padded, and then cropped into 336×336 sub-patches. The image itself is also resized to 336x336 and appended as a global patch.
 
 The texts were tokenized by [Llama 2 tokenizer](https://huggingface.co/docs/transformers/en/model_doc/llama2#transformers.LlamaTokenizer). It also creates a 
-place holder for image tokens at the location of special token `<|image_x|>`. Once the patch size of image feature in the following step is known 
+place holder for image tokens at the location of special token `<|image_x|>`. Once the patch size of image feature is known 
 (12 for Phi-3-vision), the `num_img_tokens` can be calculated by the following equation:
 
-$$ (num\;of\;sub\;crops + num\;of\;global\;crop)×144 + num\;of\;newlines + 1 (for\;the\;separate\;token)$$
+$$ (num\;of\;sub\;crops + num\;of\;global\;crop) \times 144 + rows\;of\;sub\;crops \times 12 + 1 $$
 
-Note that the image ids in `<image_x>` must start from 1 and it must be continuous int, e.g. [1,2,3], cannot be [1,4,5].
+Note that the image ids in `<|image_x|>` must start from 1 and it must be continuous int, e.g. [1,2,3], cannot be [1,4,5].
 
 ![Phi-3-image-processor](/assets/Phi-3-vision/phi-3-processor.svg){: style="width: 100%;"}
 <div class="caption">
@@ -48,7 +48,7 @@ $^1$When padding the image height or width to be divisible by 336, the value [1,
 fit the maximum number of crops (16), the value [0,0,0] was employed. It is unclear whether this distinction in padding values was a deliberate choice to 
 differentiate between image padding and crops padding, or if it occurred incidentally.
 $^2$ num_img_tokens = $\left(\frac{H}{336} \times \frac{W}{336} + 1\right) + \left(\frac{H}{336} + 1\right) \times 12 + 1$, where 12 represents the patch size 
-of image features before image embedding.
+of image features.
 </div>
 
 ## Image Embedding and Token Merging

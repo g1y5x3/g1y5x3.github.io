@@ -10,8 +10,9 @@
   <body>
     <nav class="navbar">
       <ul class="menu-left">
-        <li><a href={{ "index.html" | absolute_url }}>Home</a></li>
-        <li><a href={{ "blog.html" | absolute_url }}>Blog</a></li>
+        <li><a href={{ "index.html"   | absolute_url }}>Home</a></li>
+        <li><a href={{ "blog.html"    | absolute_url }}>Blog</a></li>
+        <li><a href={{ "project.html" | absolute_url }}>Project</a></li>
       </ul>
       <ul class="menu-right">
         <li><a href="https://github.com/g1y5x3/" class="fa-brands fa-github" target="_blank"></a></li>
@@ -23,7 +24,7 @@
     {{ content }}
     </section>
     <footer>
-      <p>Powered by <a href="https://jekyllrb.com/">Jekyll</a>, &copy; {{ site.time | date: "%Y" }} Yixiang Gao <a href="mailto:yixiangg310573@gmail.com" class="fa-solid fa-envelope" target="_blank"></a></p>
+      <p style="color: gray">Powered by <a href="https://jekyllrb.com/">Jekyll</a>, &copy; {{ site.time | date: "%Y" }} Yixiang Gao</p>
     </footer>
   </body>
 </html>

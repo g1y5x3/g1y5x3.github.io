@@ -54,28 +54,24 @@ li {
 /* Headers */
 h1 {
     font-size: 250%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
     margin: auto;
 }
 
 h2 {
     font-size: 200%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     margin: auto;
 }
 
 h3 {
     font-size: 150%;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     margin: auto;
 }
 
-h3 {
+h4 {
     font-size: 100%;
-    padding-top: 10px;
     padding-bottom: 10px;
     margin: auto;
 }
@@ -94,17 +90,18 @@ p {
 }
 
 .post-content p {
-    padding-top: 20px;
     font-family: helvetica, sans-serif;
+    padding-bottom: 10px;
 }
 
 .caption {
     font-style: italic; 
     color: gray;
+    margin-bottom: 10px;
 }
 
 table {
-    margin-top: 20px;
+    margin-bottom: 5px;
     color: #666666;
     border: 2px solid;
     border-color: #666666;
@@ -112,9 +109,9 @@ table {
 }
 
 code {
-    font-family: helvetica, sans-serif;
+    /* font-family: helvetica, sans-serif; */
     background-color:darkgrey;
-    padding: 0.1em 0.1em;
+    padding: 0.2em 0.1em;
     border-radius: 5px;
 }
 

@@ -2,3 +2,6 @@ name: My Jekyll Website
 markdown: kramdown
 kramdown:
   input: GFM
+collections:
+  projects:
+    output: true
