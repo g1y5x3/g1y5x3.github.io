@@ -7,16 +7,14 @@ description: "Description of project one."
   <title>snake</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" type="text/css" href="snake/style.css" /> 
-  <link rel="icon" href="snake/snake_logo.png" type="image/png">
+  <link rel="stylesheet" type="text/css" href="/assets/snake/style.css" /> 
 </head>
 
 *Thanks to [KT_Zheng](https://gist.github.com/ZiKT1229/5935a10ce818ea7b851ea85ecf55b4da) for the base game code. Logo was created through 
 [stable diffusion](https://en.wikipedia.org/wiki/Stable_Diffusion) powered by [tinygrad](https://github.com/tinygrad/tinygrad/blob/master).*
 
 <div class="logo-container">
-  <img src="snake/snake_logo.png" alt="TinySnake Logo">
+  <img src="/assets/snake/snake_logo.png" alt="TinySnake Logo">
 </div>
 
 Press __Enter__ to Start

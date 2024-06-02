@@ -20,7 +20,7 @@ title: Yixiang Gao
   </p>
 </div>
 
-## Bios ([CV](assets/files/Yixiang_CV.pdf))
+## Bios ([CV](assets/resume/Yixiang_CV.pdf))
 
 ### 2017 - Current
 <img style="padding-bottom: 10px;" src="assets/images/vigir.jpg" alt="ViGIR" height="60px">
