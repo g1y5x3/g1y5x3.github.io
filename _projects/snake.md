@@ -1,6 +1,6 @@
 ---
 layout: project
-title: "snake"
+title: "Snake"
 description: "Description of project one."
 ---
 <head>
@@ -69,7 +69,7 @@ function loop() {
   animationFrameId = requestAnimationFrame(loop);
 
   // slow game loop to 15 fps instead of 60 (60/15 = 4)
-  if (++count < 4) {
+  if (++count < 8) {
     return;
   }
 
@@ -121,7 +121,6 @@ function loop() {
       
       // snake occupies same space as a body part. reset game
       if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-
         resetgame();
       }
     }
