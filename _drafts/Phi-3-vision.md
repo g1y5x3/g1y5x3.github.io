@@ -37,7 +37,7 @@ The texts were tokenized by [Llama 2 tokenizer](https://huggingface.co/docs/tran
 place holder for image tokens at the location of special token `<|image_x|>`. Once the patch size of image feature is known 
 (12 for Phi-3-vision), the `num_img_tokens` can be calculated by the following equation:
 
-$$ (num\;of\;sub\;crops + num\;of\;global\;crop) \times 144 + rows\;of\;sub\;crops \times 12 + 1 $$
+$$ (\text{num of sub crops} + \text{num of global crop}) \times 144 + \text{rows of sub crops} \times 12 + 1 $$
 
 Note that the image ids in `<|image_x|>` must start from 1 and it must be continuous int, e.g. [1,2,3], cannot be [1,4,5].
 
@@ -52,8 +52,19 @@ of image features.
 </div>
 
 ## Image Embedding and Token Merging
-![Phi-3-image-processor](/assets/Phi-3-vision/phi-3-embedding.svg){: style="width: 70%;"}
+![Phi-3-image-embedding](/assets/Phi-3-vision/phi-3-embedding.svg){: style="width: 70%;"}
+<div class="caption">Figure 2.</div>
+
 ### Reshape, Permute, Flatten and Concat
-![Phi-3-image-processor](/assets/Phi-3-vision/reshape_permute_flatten_concat.svg){: style="width: 55%;"}
+![Phi-3-reshape-permute-flatten-concat](/assets/Phi-3-vision/reshape_permute_flatten_concat.svg){: style="width: 55%;"}
+<div class="caption">Figure 3.</div>
 
 ## Transformer Decoder
+### Scaled Rotary Embedding ([LongRoPE](https://arxiv.org/pdf/2402.13753))
+
+$$ \text{scaling\_factor} = \sqrt{1 + \frac{\log(\text{s})}{\log(4096)}}​ $$
+
+$$ \text{scaling\_factor} = 0.1\log(s)+1 $$
+
+![Phi-3-scaling-comparison](/assets/Phi-3-vision/scaling_factors_comparison.svg){: style="width: 55%;"}
+<div class="caption">Figure 4.</div>
