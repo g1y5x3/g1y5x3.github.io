@@ -4,6 +4,8 @@ title: Yixiang Gao
 ---
 
 # Yixiang Gao
+<p style="opacity: 0.5;">gradient descending through life</p>
+<hr style="opacity: 0.5;">
 <div style="display: grid; align-items: left; grid-template-columns: 1fr 4fr;">
   <img src="assets/images/hawaii_embc_2018.jpg" alt="profile image" width="200px">
   <p>
