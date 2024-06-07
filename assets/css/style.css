@@ -81,6 +81,15 @@ p {
     margin: auto;
 }
 
+/* quotes */
+blockquote {
+    font-style: italic;
+    color: #666666;
+    border-left: 4px solid #ccc;
+    padding-left: 10px;
+    margin-left: 0;
+}
+
 .post-date {
     font-family: helvetica, sans-serif;
 }
