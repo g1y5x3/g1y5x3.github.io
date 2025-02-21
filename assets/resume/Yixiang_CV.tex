@@ -19,8 +19,9 @@
 \usepackage[margin=0.5in]{geometry}
 
 % Setting for Publications Page
-\usepackage[style=ieee, sorting=ydnt, defernumbers=true]{biblatex}
+\usepackage[style=ieee, sorting=ydnt, defernumbers=true, maxbibnames=4, minbibnames=4]{biblatex}
 \input{glyphtounicode}
+\setlength\bibitemsep{1\itemsep}
 \addbibresource{publication.bib}
 
 % ---------- PAGE SETUP ----------
@@ -50,7 +51,7 @@
   \textit{\large Electrical and Computer Engineering}\\
   \vspace{2.5pt}
   \textbf{Contact:} 573-825-1296 $|$
-  \href{mailto:yg5d6@mail.missouri.edu}{yg5d6@mail.missouri.edu}\\
+  \href{mailto:yg5d6@umsystem.edu}{yg5d6@mail.missouri.edu}\\
 \end{flushleft}
 
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l}
@@ -66,28 +67,13 @@
 % ---------- PROFESSIONAL SUMMARY ----------
 \section{Professional Summary}
 \begin{itemize}[leftmargin=0.15in, label={}]
-  \item{AI/ML Researcher with a Ph.D. in Electrical and Computer Engineering
-  from the University of Missouri - Columbia. Specialized in fostering
-  interdisciplinary collaborations, notably with speech and language
-  pathologists, enhancing the integration of advanced AI methodologies in
-  clinical settings. Actively engaged in two NIH-funded projects (R15, R01), and
-  published extensively across engineering and clinical platforms, including 
-  EMBC, CEC, AQL, ICVPB, and in peer-reviewed journals such as Applied Sciences.
-  Exhibits profound expertise in \textbf{Deep learning}, 
-  \textbf{Computer Vision}, \textbf{Object Detection}, \textbf{Robotics} and 
-  \textbf{Pattern Recognition}. Seeking to leverage extensive AI/ML expertise 
-  to address complex real-world challenges and drive innovation in technology 
-  application.}
-\end{itemize}
-
-% ---------- TECHNICAL SKILLS ----------
-\section{Technical Skills}
-\begin{itemize}[leftmargin=0.15in, parsep=0pt, label={}]
-  \item \textbf{Programming Languages: }{Python, C/C++/CUDA, Matlab, HTML}
-  \item \textbf{Libraries: }{pytorch, scikit-learn, transformers, ultralytics, mmdet, ROS, ONNX, tinygrad}
-  \item \textbf{MLOps and API Tools: }{Git, Docker, Kubernetes, Github Actions for CI/CD}
-  \item \textbf{Operating Systems: }{Linux(preferred), Windows}
-  \item \textbf{Languages: }{English, Chinese}
+  \item{
+    Machine learning and robotics researcher.
+    Exhibits profound expertise in \textit{\textbf{Deep Learning}, \textbf{Computer Vision}, \textbf{Robotics} and \textbf{Pattern Recognition}}.
+    Specialized in fostering interdisciplinary collaborations, notably with speech language pathology, and underground mining related applications. 
+    Advocate for open source technologies.
+    Seeking to leverage extensive AI/ML expertise to address complex real-world challenges and drive innovation in technology application.
+  }
 \end{itemize}
 
 % ---------- EDUCATIONu ----------
@@ -95,7 +81,7 @@
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l r}
   University of Missouri - Columbia & 
   \textbf{Ph.D in Electrical and Computer Science} &
-  \textit{2017 -- Current (Expected July 2024)} \\
+  \textit{2017 -- 2024} \\
   
   University of Missouri - Columbia &
   \textbf{BS in Electrical Engineering} &
@@ -109,78 +95,91 @@
 % ---------- EXPERIENCE ----------
 \section{Experience}
 
+% Post Doctorial Fellow
+\textbf{Post Doctorial Fellow} $|$
+\emph{Missouri S\&T} $|$
+\emph{Department of Mining \& Explosives Engineering} \hfill
+\emph{Oct 2024 -- Current}
+\begin{itemize}[leftmargin=0.15in, parsep=0pt] 
+\item Robotics researcher for CDC NIOSH Initiative to empower miners for self-escape
+  \begin{itemize}[leftmargin=0.15in, parsep=0pt] 
+    \item Lead research on enhancing deep learning-based object detection algorithms such as YOLO in mine safety applications.
+    \item Integrate advanced LiDAR and thermal camera on Boston Dynamics' Spot quadrupled robot with ROS2.
+    \item Develop autonomous navigation solutions with Spot for underground miner exploration and miner safety monitoring.
+  \end{itemize}
+\end{itemize}
+
 % Graduate Research Assistant
 \textbf{Graduate Research Assistant} $|$
 \emph{University of Missouri - Columbia} $|$
 \emph{ViGIR Lab} \hfill
-\emph{2017 -- Current (Expected July 2024)}
+\emph{Aug 2017 -- Sep 2024}
 \begin{itemize}[leftmargin=0.15in, parsep=0pt] 
   \item PhD Thesis: Confounded predictions in machine learning
   \begin{itemize}[leftmargin=0.15in, parsep=0pt] 
     \item Detect, quantify, and mitigate confounding factors in machine learning and deep learning models.
   \end{itemize}
   \item Student Investigator for NIH R01DC018026 \hfill
-  \emph{2019 -- Current}
+  \emph{Aug 2019 -- Sep 2024}
   \begin{itemize}[leftmargin=0.15in, parsep=0pt]
-    \item Continuation study following the previous NIH R15 project.
     \item Developed classification pipeline with transformers and CNN using Pytorch and Matlab for analyzing both sEMG and fMRI data. 
-    \item Published research on confounding factors in sEMG pattern recognition for voice pathology\\ (AQL 2021/2023, CEC 2023, ICVPB 2024). 
   \end{itemize}
   \item Student Investigator for NIH R15DC015335 \hfill
-  \emph{2017 -- 2019}
+  \emph{Aug 2017 -- Aug 2019}
   \begin{itemize}[leftmargin=0.15in, parsep=0pt]
-    \item Developed machine learning algorithms with SVM, K-means, and MLP using scikit-learn and Pytorch for analyzing sEMG data.
-    \item Published pioneering research on the applications of machine learning techniques in voice pathology\\ (AQL 2017/2019, EMBC 2018, Applied Sciences).
+    \item Developed machine learning algorithms with SVM, K-means, and MLP using scikit-learn and Pytorch for analyzing sEMG data
   \end{itemize}
 \end{itemize}
 
 % Other projects
 \textbf{Other projects}
 \begin{itemize}[leftmargin=0.15in, parsep=0pt] 
-  \item Object Detection through Fisheye Cameras $|$
+  \item SpotMicro $|$ 
   \emph{University of Missouri - Columbia} $|$ 
-  \emph{ViGIR Lab}
-  \hfill\textit{2024}
-  \begin{itemize}[leftmargin=0.15in, parsep=0pt]
-    \item Trained several deep learning vision models such as YOLOv8, RT-DETR, Co-DETR on Fisheye8k dataset to participate the CVPR AI City challenge.
-  \end{itemize}
-
-  \item SpotMicro - A quadruped robot dog $|$
-  \emph{University of Missouri - Columbia} $|$
   \emph{ViGIR Lab}
   \hfill\textit{2022 -- 2023}
   \begin{itemize}[leftmargin=0.15in, parsep=0pt]
     \item An open-source quadruped robot for the MU Robotics club. Operated by a Raspberry Pi 4 and integrated with ROS.
   \end{itemize}
-
   \item Object Detection and Pose Estimation using Embedded Devices $|$
    \emph{University of Missouri - Columbia} $|$ 
   \emph{ViGIR Lab}
   \hfill\textit{2019}
   \begin{itemize}[leftmargin=0.15in, parsep=0pt]
-    \item Applied YOLO on a Raspberry Pi 3 with stereo-vision cameras for object detection and pose estimation.\\ (SSCI 2019).
+    \item Applied YOLO on a Raspberry Pi 3 with stereo-vision cameras for object detection and pose estimation.
   \end{itemize}
 \end{itemize}
 
 % Graduate Teaching Assistant
-\textbf{Graduate Research Assistant} $|$
-\emph{University of Missouri - Columbia} \hfill
-\emph{2017 -- 2019}
-\begin{itemize}[leftmargin=0.15in, parsep=0pt] 
-  \item Microprocessor Engineering
-  \item Software Design in C and C++
-\end{itemize}
+% \textbf{Graduate Research Assistant} $|$
+% \emph{University of Missouri - Columbia} \hfill
+% \emph{2017 -- 2019}
+% \begin{itemize}[leftmargin=0.15in, parsep=0pt] 
+%   \item Microprocessor Engineering
+%   \item Software Design in C and C++
+% \end{itemize}
 
 % ---------- Publications ----------
 \nocite{*}
 \printbibliography[title={Publications}]
 
+% ---------- TECHNICAL SKILLS ----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, parsep=0pt, label={}]
+  \item \textbf{Programming Languages: }{Python, C/C++/CUDA, Matlab, HTML}
+  \item \textbf{Libraries: }{pytorch, tinygrad, scikit-learn, transformers, ultralytics, mmdet, ROS 2, Gazebo, ONNX}
+  \item \textbf{Experienced Models: }{SVM, GA, MLP, CNN, RNN, transformers, ViT, DETR, YOLOs, Llama}
+  \item \textbf{MLOps and API Tools: }{Git, Docker, Kubernetes, Github Actions for CI/CD}
+  \item \textbf{Operating Systems: }{Linux(preferred), Windows}
+  \item \textbf{Languages: }{English, Chinese}
+\end{itemize}
+
 % ---------- Other activites ----------
 \section{Other activities}
 \begin{itemize}[leftmargin=0.15in, label={}]
   \item{
-  \textbf{academic paper reviews: }{EMBC2019/2020/2021, CEC2023, Applied Sciences, TAI} \\
-  \textbf{open-source contributions: }{tinygrad, huggingface transformers} \\
+  \textbf{Academic Paper Reviews: }{EMBC2019/2020/2021, CEC2023, Applied Sciences, TAI} \\
+  \textbf{Open-Source Project Contributions: }{tinygrad, huggingface transformers} \\
   }
 \end{itemize}
 
