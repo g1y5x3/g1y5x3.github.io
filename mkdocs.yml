@@ -1,0 +1,14 @@
+site_name: Yixiang Gao
+theme:
+  name: material
+  palette:
+    primary: indigo
+
+plugins: 
+  - search
+  - blog
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
