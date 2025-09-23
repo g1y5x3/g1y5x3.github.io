@@ -2,6 +2,7 @@ site_name: Yixiang Gao, Ph.D
 nav:
   - Home: index.md
   - Blog: blog/index.md
+  - Publications: https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en
 
 theme:
   name: material
