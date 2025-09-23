@@ -1,8 +1,9 @@
-site_name: Yixiang Gao, Ph.D
+site_name: 'Yixiang Gao, Ph.D'
+
 nav:
-  - Home: index.md
-  - Blog: blog/index.md
-  - Publications: https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en
+  - 'Home': 'index.md'
+  - 'Blog': 'blog/index.md'
+  - 'Publications': 'https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en'
 
 theme:
   name: material
@@ -17,6 +18,13 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/g1y5x3
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/gao_yixiang
 
 extra_css:
   - assets/extra.css
