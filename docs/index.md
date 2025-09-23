@@ -1,3 +1,6 @@
+# Yixiang Gao, Ph.D.
+*gradient descending through life*
+
 ## About Me
 ![profile image](assets/images/hawaii_embc_2018.jpg){: style="width:25%;"}
 
@@ -62,3 +65,4 @@ B.S. Computer Engineering & Electrical Engineering
 </div>
 
 </div>
+For a detailed overview of my work and experience, please see my full [Curriculum Vitae](assets/YixiangGao_CV.pdf).

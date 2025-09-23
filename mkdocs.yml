@@ -1,9 +1,10 @@
-site_name: 'Yixiang Gao, Ph.D'
+site_name: 'Yixiang Gao'
 
 nav:
   - 'Home': 'index.md'
-  - 'Blog': 'blog/index.md'
   - 'Publications': 'https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en'
+  - 'CV': assets/YixiangGao_CV.pdf
+  # - 'Blog': 'blog/index.md'
 
 theme:
   name: material
@@ -28,3 +29,5 @@ extra:
 
 extra_css:
   - assets/extra.css
+
+copyright: Copyright &copy; 2025 Yixiang Gao
