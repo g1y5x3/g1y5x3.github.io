@@ -2,7 +2,7 @@
 *gradient descending through life*
 
 ## About Me
-![profile image](assets/images/hawaii_embc_2018.jpg){: style="width:25%;"}
+![profile image](assets/images/sandiego_2024.png){: style="width:25%;"}
 
 I am a Post Doctoral Fellow at Missouri S&T, working with 
 [Dr. Kwame Awuah-Offei](https://sites.mst.edu/kwame/) 
