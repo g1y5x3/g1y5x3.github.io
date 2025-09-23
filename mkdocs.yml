@@ -1,10 +1,14 @@
-site_name: Yixiang Gao
+site_name: Yixiang Gao, Ph.D
+nav:
+  - Home: index.md
+  - Blog: blog/index.md
+
 theme:
   name: material
   palette:
     primary: indigo
 
-plugins: 
+plugins:
   - search
   - blog
 
@@ -12,3 +16,6 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
+
+extra_css:
+  - assets/extra.css
