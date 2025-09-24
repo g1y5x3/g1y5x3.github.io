@@ -8,6 +8,8 @@ nav:
 
 theme:
   name: material
+  logo: assets/images/YG.svg
+  favicon: assets/images/YG.svg
   palette:
     primary: indigo
 
@@ -18,7 +20,7 @@ plugins:
 markdown_extensions:
   - attr_list
   - md_in_html
-  - pymdownx.blocks.caption
+  - pymdownx.mark
 
 extra:
   social:
