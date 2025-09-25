@@ -47,7 +47,9 @@ Post-Doctoral Fellow, Mining and Explosive Engineering
 *Missouri University of Science and Technology*
 </div>
 <div class="column" style="width: 20%; text-align: right;" markdown>
-![S&T Logo](assets/images/MissouriS&T_Logo.png){: style="height: 3rem;" }
+<a href="https://www.mst.edu/">
+    ![S&T Logo](assets/images/MissouriS&T_Logo.png){: style="height: 3rem;" }
+</a>
 </div>
 </div>
 
@@ -61,7 +63,9 @@ Thesis: Confounded Predictions in Machine Learning
 *University of Missouri - Columbia*
 </div>
 <div class="column" style="width: 20%; text-align: right;" markdown>
-![ViGIR](assets/images/vigir.jpeg){: style="height: 3rem;" }
+<a href="https://vigir.missouri.edu/">
+    ![ViGIR](assets/images/vigir.jpeg){: style="height: 3rem;" }
+</a>
 </div>
 </div>
 
@@ -74,7 +78,9 @@ B.S. Computer Engineering & Electrical Engineering
 *University of Missouri - Columbia*
 </div>
 <div class="column" style="width: 20%; text-align: right;" markdown>
-![mizzou](assets/images/MU_logo.svg){: style="height: 3rem;" }
+<a href="https://missouri.edu/">
+    ![mizzou](assets/images/MU_logo.svg){: style="height: 3rem;" }
+</a>
 </div>
 </div>
 
