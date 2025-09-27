@@ -1,4 +1,5 @@
-# Yixiang Gao, Ph.D.
+<h1 style="font-family: 'Playfair Display', serif;">Yixiang Gao, Ph.D.</h1>
+
 <span style="color: var(--md-default-fg-color--light);">
     *gradient descending through life* 📈 📉
 </span>
@@ -6,20 +7,19 @@
 ## About Me
 ![profile image](assets/images/sandiego_2024.png){: style="width: 15rem;"}
 
-I am a Post-Doctoral Research Fellow at Missouri S&T specializing in 
-robotics and AI for the mining industry. Under the guidance of 
+I am a **Post-Doctoral Fellow** at *Missouri S&T* specializing 
+in robotics and AI for the mining industry. Under the guidance of 
 [Dr. Kwame Awuah-Offei](https://sites.mst.edu/kwame/),
 my research is centered on developing autonomous systems for miner 
 search and rescue missions. This work integrates several key 
 technologies such as 
-*Autonomous Navigation*, *Digital Twin*, *Applied AI*.
+Autonomous Navigation, Digital Twin, Computer Vision.
 
-I earned my Ph.D. from the University of Missouri - Columbia under the
-supervision of 
+I earned my **Ph.D.** from *University of Missouri - Columbia* under 
+the supervision of 
 [Dr. Gui DeSouza](https://engineering.missouri.edu/faculty/guilherme-desouza/)
 at the 
-[ViGIR](http://vigir.missouri.edu/)
-lab. 
+[Vision Guided Intellegent Robotics Laboratory](http://vigir.missouri.edu/index.html)
 My doctoral research, supported by the NIH, pioneered machine learning
 applications for voice pathology, culminating in publications that 
 bridge the fields of engineering and clinical science.
@@ -27,13 +27,13 @@ bridge the fields of engineering and clinical science.
 Currently, I am interested in 
 
 * Differentiable Rendering and Simulations 
-* Digital Twins 
+* Continual Learning
 * Edge AI
 
-that can acceleate the real-world deployment of robotics. I am 
-particularly interested in ***On-Device Continual Learning***, which
-enables autonomous systems to incrementally acquire new knowledge and
-adapt to dynamic environments without cloud dependency.
+that can acceleate the real-world deployment of robotics. My work is 
+driven by the conviction that the future of AI should be 
+decentralized, efficient, and accessible to everyone, not confined to 
+the cloud.
 
 ## Bios
 <div class="bios-list" markdown>
@@ -85,4 +85,5 @@ B.S. Computer Engineering & Electrical Engineering
 </div>
 
 </div>
-For a detailed overview of my work and experience, please see my full [Curriculum Vitae](assets/YixiangGao_CV.pdf).
+For a detailed overview of my work and experience, please see my full
+[Curriculum Vitae](assets/YixiangGao_CV.pdf).
