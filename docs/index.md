@@ -85,5 +85,5 @@ B.S. Computer Engineering & Electrical Engineering
 </div>
 
 </div>
-For a detailed overview of my work and experience, please see my full
+For a detailed overview of my work and experience, please see my full 
 [Curriculum Vitae](assets/YixiangGao_CV.pdf).
