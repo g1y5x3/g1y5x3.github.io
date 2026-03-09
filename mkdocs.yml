@@ -2,7 +2,7 @@ site_name: 'Yixiang Gao'
 
 nav:
   - 'Home': 'index.md'
-  - 'Notes': notes/index.md
+  - 'Blogs': blogs/index.md
   - 'Publications': 'https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en'
   - 'CV': assets/YixiangGao_CV.pdf
 
@@ -16,7 +16,7 @@ theme:
 plugins:
   - search
   - blog:
-      blog_dir: notes
+      blog_dir: blogs
 
 markdown_extensions:
   - attr_list

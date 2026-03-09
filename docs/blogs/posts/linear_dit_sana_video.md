@@ -7,21 +7,19 @@ categories:
 
 # From Vanilla Attention to Linear DiT
 
-A study for the background to better understand [SANA-Video](https://arxiv.org/abs/2509.24695).
+A study of the background needed to understand [SANA-Video](https://arxiv.org/abs/2509.24695), which enables efficient video generation on edge devices.
 
 <!-- more -->
 
 ## Notation
 
 - $N$ = sequence length, $d$ = head dimension, $D$ = feature-map dimension.
-- Bold uppercase for matrices ($\mathbf{Q}, \mathbf{K}, \mathbf{V}, \mathbf{S}$);
-  bold lowercase for vectors ($\boldsymbol{q}_i, \boldsymbol{k}_j, \boldsymbol{v}_j, \boldsymbol{o}_i, \boldsymbol{z}$);
-  plain for scalars ($a_{ij}, \kappa, d, N$).
+- Bold uppercase for matrices ($\mathbf{Q}, \mathbf{K}, \mathbf{V}, \mathbf{S}$).
+- bold lowercase for vectors ($\boldsymbol{q}_i, \boldsymbol{k}_j, \boldsymbol{v}_j, \boldsymbol{o}_i, \boldsymbol{z}$).
+- plain for scalars ($a_{ij}, \kappa, d, N$).
 - All per-token vectors are ***row vectors***:
   $\boldsymbol{q}_i, \boldsymbol{k}_j, \boldsymbol{v}_j \in \mathbb{R}^{1 \times d}$ are rows of
-  $\mathbf{Q}, \mathbf{K}, \mathbf{V} \in \mathbb{R}^{N \times d}$;
-  dot products are written $\boldsymbol{q}_i \boldsymbol{k}_j^\top$ (a scalar).
-- Feature maps: $\phi : \mathbb{R}^{1 \times d} \to \mathbb{R}^{1 \times D}$ (row in, row out).
+  $\mathbf{Q}, \mathbf{K}, \mathbf{V} \in \mathbb{R}^{N \times d}$.
 
 ## 1. Vanilla (Softmax) [Attention](https://arxiv.org/abs/1706.03762)
 
@@ -33,63 +31,58 @@ $$
 \tag{1}
 $$
 
-- Computes a full $N \times N$ attention matrix $\Rightarrow$ $\mathcal{O}(N^2 d)$ time, $\mathcal{O}(N^2)$ memory.
-- Softmax is applied row-wise, so each output token is a convex combination (non-negative weights summing to 1) of all value vectors.
-- Works extremely well but becomes prohibitive when $N$ is large (e.g. video tokens $\sim 10^5$--$10^6$).
+- **$\mathcal{O}(N^2 d)$ time, $\mathcal{O}(N^2)$ memory** — must compute and store a full $N \times N$ attention matrix.
+- **Prohibitive at scale** — for video tokens where $N \sim 10^5$--$10^6$, both the compute and memory costs become the dominant bottleneck.
 
 ## 2. The Kernel View of Attention
 
 !!! tip "Key idea"
     Rewrite each attention weight as a kernel evaluation, factor it, and rearrange the summation to avoid the $N \times N$ matrix entirely.
 
-**Step 1: Per-token attention weight.**
 Row $i$ of $\mathbf{Q}\mathbf{K}^\top/\sqrt{d}$ has entries $\boldsymbol{q}_i \boldsymbol{k}_j^\top / \sqrt{d}$ for $j=1,\dots,N$.
 After row-wise softmax, the attention weight from query $i$ to key $j$ is
 
 $$
 a_{ij}
 = \frac{\exp\!\bigl(\boldsymbol{q}_i \boldsymbol{k}_j^\top / \sqrt{d}\bigr)}
-       {\sum_{l=1}^{N} \exp\!\bigl(\boldsymbol{q}_i \boldsymbol{k}_l^\top / \sqrt{d}\bigr)}.
+       {\sum_{l=1}^{N} \exp\!\bigl(\boldsymbol{q}_i \boldsymbol{k}_l^\top / \sqrt{d}\bigr)}
+\tag{2}
 $$
 
-**Step 2: Define the kernel and rewrite.**
-Let $\kappa(\boldsymbol{q}, \boldsymbol{k}) \triangleq \exp(\boldsymbol{q} \boldsymbol{k}^\top / \sqrt{d})$.
-Substituting gives the compact kernel form:
+Recognizing the exponential dot product as a kernel $\kappa(\boldsymbol{q}, \boldsymbol{k}) \triangleq \exp(\boldsymbol{q} \boldsymbol{k}^\top / \sqrt{d})$, we can rewrite this more compactly:
 
 $$
 a_{ij}
-= \frac{\exp(\boldsymbol{q}_i \boldsymbol{k}_j^\top / \sqrt{d})}
-{\sum_{l=1}^{N} \exp(\boldsymbol{q}_i \boldsymbol{k}_l^\top / \sqrt{d})}
 = \frac{\kappa(\boldsymbol{q}_i, \boldsymbol{k}_j)}
 {\sum_{l=1}^{N} \kappa(\boldsymbol{q}_i, \boldsymbol{k}_l)}
-\tag{2}
+\tag{3}
 $$
 
 where $\kappa(\boldsymbol{q}, \boldsymbol{k}) = \exp(\boldsymbol{q} \boldsymbol{k}^\top / \sqrt{d})$ is the **softmax kernel**. Here $\boldsymbol{q}_i, \boldsymbol{k}_j$ are $1 \times d$ row vectors (row $i$ of $\mathbf{Q}$, row $j$ of $\mathbf{K}$), so $\boldsymbol{q}_i \boldsymbol{k}_j^\top$ is a scalar dot product. This is a [positive-definite kernel](https://en.wikipedia.org/wiki/Positive-definite_kernel), so the attention matrix is really a (row-normalized) kernel matrix.
 
-Note that Eq. (2) only defines the scalar attention *weights*. The full output for token $i$ applies these weights to the value vectors:
+Note that Eq. (3) only defines the scalar attention *weights*. The full output for token $i$ applies these weights to the value vectors:
 
 $$
 \boldsymbol{o}_i = \sum_{j=1}^{N} a_{ij} \, \boldsymbol{v}_j
-\tag{3}
+\tag{4}
 $$
 
 where $\boldsymbol{v}_j$ is row $j$ of $\mathbf{V}$ ($1 \times d$), so $\boldsymbol{o}_i$ is also $1 \times d$.
 
-**Key insight (Katharopoulos et al., 2020):** If we replace $\kappa$ with *any* kernel that factors as
+**Key insight from [Katharopoulos et al., 2020](https://arxiv.org/abs/2006.16236):** If we replace $\kappa$ with *any* kernel that factors as
 
 $$
 \kappa(\boldsymbol{q}, \boldsymbol{k}) = \phi(\boldsymbol{q}) \, \phi(\boldsymbol{k})^\top,
-\tag{4}
+\tag{5}
 $$
 
-where $\phi : \mathbb{R}^{1 \times d} \to \mathbb{R}^{1 \times D}$ is a feature map (row in, row out), then substituting into Eq. (2)--(3):
+where $\phi : \mathbb{R}^{1 \times d} \to \mathbb{R}^{1 \times D}$ is a feature map (row in, row out), then substituting into Eq. (3)--(4):
 
 $$
 \boldsymbol{o}_i
 = \sum_{j} \frac{\phi(\boldsymbol{q}_i) \, \phi(\boldsymbol{k}_j)^\top}{\sum_{l} \phi(\boldsymbol{q}_i) \, \phi(\boldsymbol{k}_l)^\top} \, \boldsymbol{v}_j
 = \frac{\sum_{j} \phi(\boldsymbol{q}_i) \, \phi(\boldsymbol{k}_j)^\top \, \boldsymbol{v}_j}{\sum_{l} \phi(\boldsymbol{q}_i) \, \phi(\boldsymbol{k}_l)^\top}
-\tag{5}
+\tag{6}
 $$
 
 Since $\phi(\boldsymbol{q}_i)$ does not depend on the summation index, we can factor it out:
@@ -100,39 +93,41 @@ $$
 {\phi(\boldsymbol{q}_i) \sum_{j} \phi(\boldsymbol{k}_j)^\top}
 = \frac{\phi(\boldsymbol{q}_i) \, \mathbf{S}}
 {\phi(\boldsymbol{q}_i) \, \boldsymbol{z}}
-\tag{6}
+\tag{7}
 $$
 
 where $\mathbf{S} = \sum_{j} \phi(\boldsymbol{k}_j)^\top \boldsymbol{v}_j \in \mathbb{R}^{D \times d}$ and $\boldsymbol{z} = \sum_{j} \phi(\boldsymbol{k}_j)^\top \in \mathbb{R}^{D \times 1}$.
 
 ## 3. Linear Attention
 
+With the original softmax kernel, every attention weight $a_{ij}$ depends on *all* keys through the normalizing denominator $\sum_l \exp(\boldsymbol{q}_i \boldsymbol{k}_l^\top / \sqrt{d})$ — there is no way to separate the query from the keys into independent factors, so the $N \times N$ interaction is unavoidable. This is the fundamental reason vanilla attention costs $\mathcal{O}(N^2 d)$.
+
 ### Core Idea
 
-By pre-computing $\mathbf{S}$ and $\boldsymbol{z}$ (both independent of $i$), each query's output is just a matrix-vector product $\Rightarrow$ $\mathcal{O}(N D d)$ total, which is **linear in $N$** (assuming $D, d \ll N$).
+!!! tip "Core Idea"
+    Replace the softmax kernel with one that factors as $\phi(\boldsymbol{q})\phi(\boldsymbol{k})^\top$. This lets $\phi(\boldsymbol{q}_i)$ be pulled out of the sums in Eq. (7), so $\mathbf{S}$ and $\boldsymbol{z}$ can be pre-computed once and shared across all $N$ tokens — reducing cost to **linear in $N$**.
 
-$$
-\boxed{
+    $$
     \mathcal{O}(N^2 d) \;\xrightarrow{\text{linear attn}}\; \mathcal{O}(N D d)
-}
-\tag{7}
-$$
+    \tag{8}
+    $$
 
-### Choice of $\phi$
+### Choice of Feature Map
 
-- **Katharopoulos et al. (ICML 2020):** $\phi(x) = \mathrm{elu}(x) + 1$ applied element-wise $\Rightarrow D = d$, so the cost is $\mathcal{O}(N d^2)$.
-- **Performers (Choromanski et al., 2021):** Random Fourier features to approximate the softmax kernel; $D$ controls the approximation quality.
-- **cosFormer (Qin et al., 2022):** cos-reweighted linear attention with RoPE-like decay.
-- Various others: ReLU, $1 + \mathrm{elu}$, learnable maps, etc.
+- **[Katharopoulos et al., 2020](https://arxiv.org/abs/2006.16236):** $\phi(x) = \mathrm{elu}(x) + 1$ applied element-wise $\Rightarrow D = d$, so the cost is $\mathcal{O}(N d^2)$.
+- **SANA / SANA-Video:** $\phi(x) = \mathrm{ReLU}(x)$ applied element-wise. Also gives $D = d$ and $\mathcal{O}(N d^2)$ cost, but with sparser activations than ELU+1.
+- Many other choices exist in the literature, including random Fourier features ([Choromanski et al., 2021](https://arxiv.org/abs/2009.14794)), cosine-based reweighting ([Qin et al., 2022](https://arxiv.org/abs/2202.08791)), and learnable feature maps.
 
 ### Autoregressive / Causal Form
 
-For causal (left-to-right) generation, the sums become *prefix sums*:
+In autoregressive models like GPT, tokens are generated one at a time — each new token is conditioned only on the tokens that came before it. This is enforced by **causal masking**: token $i$ can only attend to positions $j \leq i$, never to the future. The same principle applies to video generation in SANA-Video, where blocks of frames are generated sequentially and each block can only see past blocks.
+
+Under causal masking, the global sums in Eq. (7) become *prefix sums* that grow with each new token:
 
 $$
 \mathbf{S}_i = \sum_{j=1}^{i} \phi(\boldsymbol{k}_j)^\top \boldsymbol{v}_j, \qquad
 \boldsymbol{z}_i = \sum_{j=1}^{i} \phi(\boldsymbol{k}_j)^\top
-\tag{8}
+\tag{9}
 $$
 
 which can be computed incrementally as an RNN:
@@ -140,26 +135,30 @@ which can be computed incrementally as an RNN:
 $$
 \mathbf{S}_i = \mathbf{S}_{i-1} + \phi(\boldsymbol{k}_i)^\top \boldsymbol{v}_i, \qquad
 \boldsymbol{z}_i = \boldsymbol{z}_{i-1} + \phi(\boldsymbol{k}_i)^\top
-\tag{9}
+\tag{10}
 $$
 
-This is the "Transformers are RNNs" result: linear attention with causal masking is mathematically equivalent to a linear RNN with a matrix-valued hidden state $\mathbf{S}_i$.
+In other words, causal linear attention reduces to a recurrence: at each step you update a fixed-size state $\mathbf{S}_i$ and $\boldsymbol{z}_i$ rather than re-attending over all past tokens. This is what makes constant-memory inference possible — and exactly what SANA-Video exploits for its block-wise KV cache.
 
 ## 4. Linear Attention in Language Models
 
-- **Linear Transformers (Katharopoulos et al., 2020):** First to show the kernel trick $\Rightarrow$ linear complexity + RNN equivalence. Up to 4000$\times$ faster on very long autoregressive sequences.
-- **Performers (Choromanski et al., 2021):** FAVOR+ mechanism using random features to get unbiased softmax approximation. Deployed in some Google systems.
-- **RetNet (Sun et al., 2023):** Retention = linear attention + exponential decay + group normalization. Three computation paradigms: parallel, recurrent, chunk-wise.
-- **Mamba / S4 line (Gu et al.):** State-space models that can also be viewed through the linear attention lens; diagonal state matrices for efficiency.
-- **GLA (Yang et al., 2024):** Gated Linear Attention -- data-dependent gating on the recurrent state, bridging linear attention and gated RNNs.
+> The following are not an exhaustive survey but a few works I picked as representative of the literature.
 
-**Recurring trade-off:** Linear attention is fast but generally slightly less expressive than full softmax attention. Recent work (gating, decay, hybrid architectures) narrows this gap.
+- **[Katharopoulos et al., 2020](https://arxiv.org/abs/2006.16236):** First to demonstrate the kernel trick for linear complexity and the RNN equivalence. Fast, but the simple ELU+1 feature map loses some of the expressiveness of softmax — quality degrades on tasks that require sharp, selective attention patterns.
+- **[Gu & Dao, 2023](https://arxiv.org/abs/2312.00752):** Mamba introduces selective state-space models, which can be viewed through the linear attention lens. By making the state transition input-dependent, it recovers much of the content-based reasoning ability that vanilla linear attention lacks, while keeping linear-time complexity.
+- **[Yang et al., 2024](https://arxiv.org/abs/2312.06635):** Gated Linear Attention adds data-dependent gating on the recurrent state, bridging linear attention and gated RNNs. This lets the model learn to forget irrelevant context — another way to close the expressiveness gap with softmax.
+
+The recurring theme across these works is a fundamental trade-off: replacing softmax with a linear kernel buys speed but sacrifices the ability to form sharp, context-dependent attention distributions. Each subsequent method attempts to recover that expressiveness — through input-dependent gating, selective state transitions, or hybrid designs — while preserving the $\mathcal{O}(N)$ scaling that makes long-sequence modeling practical.
 
 ## 5. DiT: Diffusion Transformer
 
-- DiT (Peebles & Xie, 2023) replaced U-Net with a Transformer backbone for diffusion models.
-- Uses standard softmax attention over spatial (and temporal) tokens of the noisy latent.
-- For video generation, $N$ = (frames $\times$ height $\times$ width) in latent space $\Rightarrow$ $N$ easily $>10^5$, making $\mathcal{O}(N^2)$ attention the dominant bottleneck.
+> Again, not an exhaustive survey — just a few representative works that trace the path from latent diffusion to video DiT.
+
+- **[Rombach et al., 2022](https://arxiv.org/abs/2112.10752):** Introduced latent diffusion models (LDM), running the diffusion process in a compressed latent space via a VAE rather than in pixel space. This made high-resolution generation practical and is the foundation behind Stable Diffusion.
+- **[Peebles & Xie, 2023](https://arxiv.org/abs/2212.09748):** Replaced the U-Net in LDM with a Transformer backbone, using standard softmax attention over spatial tokens of the noisy latent. This established DiT as the dominant architecture for diffusion models.
+- **[Wan 2.1 (Team Wan, 2025)](https://arxiv.org/abs/2503.20314):** Extends DiT to large-scale video generation at 1.3B and 14B parameters, adding temporal modeling through factorized or full 3D attention while keeping softmax attention. The 14B model takes 484 s for a 5 s 480p video and 1897 s at 720p on a single H100.
+
+DiT works well, but video pushes it to its limits. With $N$ = (frames $\times$ height $\times$ width) in latent space, token counts easily exceed $10^5$, making $\mathcal{O}(N^2)$ softmax attention the dominant bottleneck. The latency numbers from Wan 2.1 make this cost concrete — and this is precisely what SANA-Video targets with linear attention.
 
 ## 6. SANA-Video: Linear DiT
 
@@ -276,11 +275,18 @@ NVFP4 quantization (SVDQuant) on RTX 5090: 720p 5 s video in 29 s (2.4$\times$ s
 
 ## References
 
-1. Vaswani et al., "Attention Is All You Need." [arXiv:1706.03762](https://arxiv.org/abs/1706.03762)
-2. Katharopoulos et al., "Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention." [arXiv:2006.16236](https://arxiv.org/abs/2006.16236)
-3. Choromanski et al., "Rethinking Attention with Performers." [arXiv:2009.14794](https://arxiv.org/abs/2009.14794)
-4. Peebles & Xie, "Scalable Diffusion Models with Transformers." [arXiv:2212.09748](https://arxiv.org/abs/2212.09748)
-5. Chen et al., "SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer." [arXiv:2509.24695](https://arxiv.org/abs/2509.24695)
-6. Sun et al., "Retentive Network: A Successor to Transformer for Large Language Models." [arXiv:2307.08621](https://arxiv.org/abs/2307.08621)
-7. Yang et al., "Gated Linear Attention Transformers with Hardware-Efficient Training." [arXiv:2312.06635](https://arxiv.org/abs/2312.06635)
-8. Su et al., "RoFormer: Enhanced Transformer with Rotary Position Embedding." [arXiv:2104.09864](https://arxiv.org/abs/2104.09864)
+<div class="references" markdown>
+
+1. Vaswani et al., ["Attention Is All You Need."](https://arxiv.org/abs/1706.03762)
+2. Katharopoulos et al., ["Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention."](https://arxiv.org/abs/2006.16236)
+3. Choromanski et al., ["Rethinking Attention with Performers."](https://arxiv.org/abs/2009.14794)
+4. Peebles & Xie, ["Scalable Diffusion Models with Transformers."](https://arxiv.org/abs/2212.09748)
+5. Chen et al., ["SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer."](https://arxiv.org/abs/2509.24695)
+6. Sun et al., ["Retentive Network: A Successor to Transformer for Large Language Models."](https://arxiv.org/abs/2307.08621)
+7. Yang et al., ["Gated Linear Attention Transformers with Hardware-Efficient Training."](https://arxiv.org/abs/2312.06635)
+8. Su et al., ["RoFormer: Enhanced Transformer with Rotary Position Embedding."](https://arxiv.org/abs/2104.09864)
+9. Gu & Dao, ["Mamba: Linear-Time Sequence Modeling with Selective State Spaces."](https://arxiv.org/abs/2312.00752)
+10. Team Wan, ["Wan: Open and Advanced Large-Scale Video Generative Models."](https://arxiv.org/abs/2503.20314)
+11. Rombach et al., ["High-Resolution Image Synthesis with Latent Diffusion Models."](https://arxiv.org/abs/2112.10752)
+
+</div>
