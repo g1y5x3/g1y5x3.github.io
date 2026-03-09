@@ -1,0 +1,12 @@
+.md-nav__title {
+  display: none;
+}
+
+.md-typeset .admonition {
+  font-size: inherit !important;
+}
+
+.references {
+  font-size: 0.85em;
+  font-style: italic;
+}
