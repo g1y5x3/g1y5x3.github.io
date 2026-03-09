@@ -1,4 +1,4 @@
-<h1 style="font-family: 'Playfair Display', serif;">Yixiang Gao, Ph.D.</h1>
+<h1>Yixiang Gao, Ph.D.</h1>
 
 <span style="color: var(--md-default-fg-color--light);">
     *gradient descending through life* 📈 📉

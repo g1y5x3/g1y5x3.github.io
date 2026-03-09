@@ -2,9 +2,9 @@ site_name: 'Yixiang Gao'
 
 nav:
   - 'Home': 'index.md'
+  - 'Notes': notes/index.md
   - 'Publications': 'https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en'
   - 'CV': assets/YixiangGao_CV.pdf
-  # - 'Blog': 'blog/index.md'
 
 theme:
   name: material
@@ -15,12 +15,19 @@ theme:
 
 plugins:
   - search
-  - blog
+  - blog:
+      blog_dir: notes
 
 markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.mark
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 extra:
   social:
@@ -31,5 +38,8 @@ extra:
 
 extra_css:
   - assets/extra.css
+
+exclude_docs: |
+  plans/
 
 copyright: Copyright &copy; 2025 Yixiang Gao
