@@ -7,11 +7,11 @@ categories:
 
 # From Vanilla Attention to Linear DiT
 
-Background for SANA-Video ([arXiv:2509.24695](https://arxiv.org/abs/2509.24695)).
+A study for the background to better understand [SANA-Video](https://arxiv.org/abs/2509.24695).
 
 <!-- more -->
 
-**Notation.**
+## Notation
 
 - $N$ = sequence length, $d$ = head dimension, $D$ = feature-map dimension.
 - Bold uppercase for matrices ($\mathbf{Q}, \mathbf{K}, \mathbf{V}, \mathbf{S}$);
@@ -23,7 +23,7 @@ Background for SANA-Video ([arXiv:2509.24695](https://arxiv.org/abs/2509.24695))
   dot products are written $\boldsymbol{q}_i \boldsymbol{k}_j^\top$ (a scalar).
 - Feature maps: $\phi : \mathbb{R}^{1 \times d} \to \mathbb{R}^{1 \times D}$ (row in, row out).
 
-## 1. Vanilla (Softmax) Attention
+## 1. Vanilla (Softmax) [Attention](https://arxiv.org/abs/1706.03762)
 
 Given queries $\mathbf{Q} \in \mathbb{R}^{N \times d}$, keys $\mathbf{K} \in \mathbb{R}^{N \times d}$, values $\mathbf{V} \in \mathbb{R}^{N \times d}$:
 
@@ -39,10 +39,8 @@ $$
 
 ## 2. The Kernel View of Attention
 
-We unpack the matrix-level Eq. (1) into a per-token scalar form and then
-recognise it as a kernel evaluation.
-
-<!-- Diagram removed — to be redesigned later -->
+!!! tip "Key idea"
+    Rewrite each attention weight as a kernel evaluation, factor it, and rearrange the summation to avoid the $N \times N$ matrix entirely.
 
 **Step 1: Per-token attention weight.**
 Row $i$ of $\mathbf{Q}\mathbf{K}^\top/\sqrt{d}$ has entries $\boldsymbol{q}_i \boldsymbol{k}_j^\top / \sqrt{d}$ for $j=1,\dots,N$.
@@ -67,7 +65,7 @@ a_{ij}
 \tag{2}
 $$
 
-where $\kappa(\boldsymbol{q}, \boldsymbol{k}) = \exp(\boldsymbol{q} \boldsymbol{k}^\top / \sqrt{d})$ is the **softmax kernel**. Here $\boldsymbol{q}_i, \boldsymbol{k}_j$ are $1 \times d$ row vectors (row $i$ of $\mathbf{Q}$, row $j$ of $\mathbf{K}$), so $\boldsymbol{q}_i \boldsymbol{k}_j^\top$ is a scalar dot product. This is a positive-definite kernel, so the attention matrix is really a (row-normalized) kernel matrix.
+where $\kappa(\boldsymbol{q}, \boldsymbol{k}) = \exp(\boldsymbol{q} \boldsymbol{k}^\top / \sqrt{d})$ is the **softmax kernel**. Here $\boldsymbol{q}_i, \boldsymbol{k}_j$ are $1 \times d$ row vectors (row $i$ of $\mathbf{Q}$, row $j$ of $\mathbf{K}$), so $\boldsymbol{q}_i \boldsymbol{k}_j^\top$ is a scalar dot product. This is a [positive-definite kernel](https://en.wikipedia.org/wiki/Positive-definite_kernel), so the attention matrix is really a (row-normalized) kernel matrix.
 
 Note that Eq. (2) only defines the scalar attention *weights*. The full output for token $i$ applies these weights to the value vectors:
 
@@ -217,7 +215,11 @@ This is the "Transformers are RNNs" result: linear attention with causal masking
 
 ### Architecture Details
 
-- **Model:** SANA-Video-2B parameters. Architecture is "almost identical" to SANA (image) -- same Linear DiT backbone with a small decoder-only text encoder. Continued pre-training from the SANA-1.6B T2I model.
+- **Model:** SANA-Video-2B parameters. Architecture is, per the paper:
+
+    > *almost identical* to SANA (image)
+
+    Same Linear DiT backbone with a small decoder-only text encoder. Continued pre-training from the SANA-1.6B T2I model.
 - **Text conditioning:** Uses a small decoder-only text encoder (inherited from SANA); conditioning is injected via cross-attention (the SANA design).
 - **No separate temporal/spatial factorization:** Unlike many video DiTs that alternate spatial and temporal attention layers, SANA-Video uses *full 3D linear attention* over all spatio-temporal tokens jointly.
   Temporal modeling is instead enhanced by:
@@ -274,10 +276,11 @@ NVFP4 quantization (SVDQuant) on RTX 5090: 720p 5 s video in 29 s (2.4$\times$ s
 
 ## References
 
-1. Vaswani et al., "Attention Is All You Need," NeurIPS 2017. [arXiv:1706.03762](https://arxiv.org/abs/1706.03762)
-2. Katharopoulos et al., "Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention," ICML 2020. [arXiv:2006.16236](https://arxiv.org/abs/2006.16236)
-3. Choromanski et al., "Rethinking Attention with Performers," ICLR 2021. [arXiv:2009.14794](https://arxiv.org/abs/2009.14794)
-4. Peebles & Xie, "Scalable Diffusion Models with Transformers," ICCV 2023. [arXiv:2212.09748](https://arxiv.org/abs/2212.09748)
-5. Chen et al., "SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer," 2025. [arXiv:2509.24695](https://arxiv.org/abs/2509.24695)
-6. Sun et al., "Retentive Network: A Successor to Transformer for Large Language Models," 2023. [arXiv:2307.08621](https://arxiv.org/abs/2307.08621)
-7. Yang et al., "Gated Linear Attention Transformers with Hardware-Efficient Training," 2024. [arXiv:2312.06635](https://arxiv.org/abs/2312.06635)
+1. Vaswani et al., "Attention Is All You Need." [arXiv:1706.03762](https://arxiv.org/abs/1706.03762)
+2. Katharopoulos et al., "Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention." [arXiv:2006.16236](https://arxiv.org/abs/2006.16236)
+3. Choromanski et al., "Rethinking Attention with Performers." [arXiv:2009.14794](https://arxiv.org/abs/2009.14794)
+4. Peebles & Xie, "Scalable Diffusion Models with Transformers." [arXiv:2212.09748](https://arxiv.org/abs/2212.09748)
+5. Chen et al., "SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer." [arXiv:2509.24695](https://arxiv.org/abs/2509.24695)
+6. Sun et al., "Retentive Network: A Successor to Transformer for Large Language Models." [arXiv:2307.08621](https://arxiv.org/abs/2307.08621)
+7. Yang et al., "Gated Linear Attention Transformers with Hardware-Efficient Training." [arXiv:2312.06635](https://arxiv.org/abs/2312.06635)
+8. Su et al., "RoFormer: Enhanced Transformer with Rotary Position Embedding." [arXiv:2104.09864](https://arxiv.org/abs/2104.09864)

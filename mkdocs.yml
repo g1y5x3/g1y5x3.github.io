@@ -21,6 +21,7 @@ plugins:
 markdown_extensions:
   - attr_list
   - md_in_html
+  - admonition
   - pymdownx.mark
   - pymdownx.arithmatex:
       generic: true
