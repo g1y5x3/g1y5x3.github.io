@@ -26,7 +26,7 @@ A study of the background needed to understand [SANA-Video](https://arxiv.org/ab
 Given queries $\mathbf{Q} \in \mathbb{R}^{N \times d}$, keys $\mathbf{K} \in \mathbb{R}^{N \times d}$, values $\mathbf{V} \in \mathbb{R}^{N \times d}$:
 
 $$
-\mathrm{Attn}(\mathbf{Q}, \mathbf{K}, \mathbf{V})
+ mathrm{Attn}(\mathbf{Q}, \mathbf{K}, \mathbf{V})
 = \mathrm{softmax}\!\left(\frac{\mathbf{Q}\mathbf{K}^\top}{\sqrt{d}}\right) \mathbf{V}
 \tag{1}
 $$
