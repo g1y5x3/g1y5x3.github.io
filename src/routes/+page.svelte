@@ -1,20 +1,81 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
+	import { onMount } from 'svelte';
+
 	interface BioEntry {
 		years: string;
 		title: string;
 		institution: string;
 		institutionUrl: string;
 		logoSrc: string;
+		darkLogoSrc?: string;
 		logoAlt: string;
 	}
 
+	let useDarkLogos = $state(false);
+
+	onMount(() => {
+		let updateFrame = 0;
+
+		const updateLogoTheme = () => {
+			cancelAnimationFrame(updateFrame);
+			updateFrame = requestAnimationFrame(() => {
+				const channels = getComputedStyle(document.body).backgroundColor.match(/[\d.]+/g);
+				if (!channels || channels.length < 3) return;
+
+				const [red, green, blue] = channels.slice(0, 3).map(Number);
+				const luminance = (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255;
+				useDarkLogos = luminance < 0.5;
+			});
+		};
+
+		const themeObserver = new MutationObserver(updateLogoTheme);
+		themeObserver.observe(document.documentElement, { attributes: true });
+		themeObserver.observe(document.body, { attributes: true });
+		themeObserver.observe(document.head, {
+			attributes: true,
+			childList: true,
+			characterData: true,
+			subtree: true
+		});
+
+		const colorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+		colorScheme.addEventListener('change', updateLogoTheme);
+		updateLogoTheme();
+
+		return () => {
+			cancelAnimationFrame(updateFrame);
+			themeObserver.disconnect();
+			colorScheme.removeEventListener('change', updateLogoTheme);
+		};
+	});
+
 	const bioEntries: BioEntry[] = [
 		{
-			years: '2024 - Current',
+			years: 'Aug 2026 - Current',
+			title: 'Chief Scientist in Robotics & AI',
+			institution: 'TouchTronix Robotics',
+			institutionUrl: 'https://www.touchtronix.io/',
+			logoSrc: asset('/assets/images/TouchTronix_logo.png'),
+			darkLogoSrc: asset('/assets/images/TouchTronix_logo_dark.png'),
+			logoAlt: 'TouchTronix Robotics logo'
+		},
+		{
+			years: '2025 - 2026',
+			title: 'Part-Time Robotic Consultant, Innovation Implementation and Strategy',
+			institution: 'Ameren',
+			institutionUrl: 'https://www.ameren.com/',
+			logoSrc: asset('/assets/images/Ameren_logo.png'),
+			darkLogoSrc: asset('/assets/images/Ameren_logo_dark.png'),
+			logoAlt: 'Ameren logo'
+		},
+		{
+			years: '2024 - 2026',
 			title: 'Post-Doctoral Fellow, Mining and Explosive Engineering',
 			institution: 'Missouri University of Science and Technology',
 			institutionUrl: 'https://www.mst.edu/',
-			logoSrc: '/assets/images/MissouriS&T_Logo.png',
+			logoSrc: asset('/assets/images/MissouriS&T_Logo.png'),
+			darkLogoSrc: asset('/assets/images/MissouriS&T_Logo_dark.png'),
 			logoAlt: 'Missouri S&T logo'
 		},
 		{
@@ -22,7 +83,7 @@
 			title: 'Ph.D. Electrical and Computer Engineering',
 			institution: 'University of Missouri - Columbia',
 			institutionUrl: 'https://vigir.missouri.edu/',
-			logoSrc: '/assets/images/vigir.jpeg',
+			logoSrc: asset('/assets/images/vigir.jpeg'),
 			logoAlt: 'ViGIR logo'
 		},
 		{
@@ -30,7 +91,7 @@
 			title: 'B.S. Computer Engineering & Electrical Engineering',
 			institution: 'University of Missouri - Columbia',
 			institutionUrl: 'https://missouri.edu/',
-			logoSrc: '/assets/images/MU_logo.svg',
+			logoSrc: asset('/assets/images/MU_logo.svg'),
 			logoAlt: 'Mizzou logo'
 		}
 	];
@@ -40,18 +101,20 @@
 	<title>Yixiang Gao</title>
 	<meta
 		name="description"
-		content="Yixiang Gao — robotics, mining autonomy, and edge AI."
+		content="Yixiang Gao — robotics, egocentric vision, tactile sensing, and edge AI."
 	/>
 </svelte:head>
 
-<div class="page">
+<div class="page" id="about">
 	<header class="site-header">
 		<div>
 			<h1>Yixiang Gao</h1>
 			<p class="tagline">gradient descending through life 📈 📉</p>
 		</div>
 		<nav class="links" aria-label="Primary links">
-			<a href="/assets/YixiangGao_CV.pdf">CV</a>
+			<a href="#about">About</a>
+			<a href="#projects">Projects</a>
+			<a href={asset('/assets/YixiangGao_CV.pdf')}>CV</a>
 			<a href="https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en">Google Scholar</a>
 		</nav>
 	</header>
@@ -60,43 +123,50 @@
 		<div class="intro-copy">
 			<h2>About</h2>
 			<p>
-				I am a <strong>Post-Doctoral Fellow</strong> at <em>Missouri S&amp;T</em> specializing in
-				robotics and AI for the mining industry. Under the guidance of
-				<a href="https://sites.mst.edu/kwame/">Dr. Kwame Awuah-Offei</a>, my research is centered
-				on developing autonomous systems for miner search and rescue missions. This work
-				integrates several key technologies such as Autonomous Navigation, Digital Twin,
-				and Computer Vision.
+				I am the <strong>Chief Scientist in Robotics &amp; AI</strong> at
+				<a href="https://www.touchtronix.io/"><em>TouchTronix Robotics</em></a>, where I lead
+				efforts in vision+tactile data collection and robot policy learning.
+			</p>
+			<p>
+				Previously, I was a <strong>Post-Doctoral Fellow</strong> at
+				<em>Missouri S&amp;T</em>, where I used the Spot quadruped platform to develop autonomous
+				systems for miner search and rescue missions. Under the guidance of
+				<a href="https://sites.mst.edu/kwame/">Dr. Kwame Awuah-Offei</a>, this research integrated
+				autonomous navigation, digital twins, and computer vision. During this period, I also served
+				as a <strong>Part-Time Robotic Consultant</strong> with <em>Ameren</em>'s Innovation
+				Implementation and Strategy team, led by
+				<a href="https://www.linkedin.com/in/alex-rojas-220bb17">Alex Rojas</a>. There, I worked on
+				deploying Spot for autonomous substation inspections, including step-voltage measurements,
+				to assist field workers. The shared quadruped platform closely connected my research and
+				industry work.
 			</p>
 			<p>
 				I earned my <strong>Ph.D.</strong> from <em>University of Missouri - Columbia</em>
 				under the supervision of
-				<a href="https://engineering.missouri.edu/faculty/guilherme-desouza/"
-					>Dr. Gui DeSouza</a
-				>
+				<a href="https://engineering.missouri.edu/faculty/guilherme-desouza/">Dr. Gui DeSouza</a>
 				at the
 				<a href="http://vigir.missouri.edu/index.html"
-					>Vision Guided Intellegent Robotics Laboratory</a
-				>. My doctoral research, supported by the NIH, pioneered machine learning
-				applications for voice pathology, culminating in publications that bridge the
-				fields of engineering and clinical science.
-			</p>
-			<p>
-				Currently, I am interested in Differentiable Rendering and Simulations, Continual
-				Learning, and Edge AI that can acceleate the real-world deployment of robotics. My
-				work is driven by the conviction that the future of AI should be decentralized,
-				efficient, and accessible to everyone, not confined to the cloud.
+					>Vision Guided Intelligent Robotics Laboratory</a
+				>. My doctoral research, supported by the NIH, pioneered machine learning applications for
+				voice pathology, culminating in publications that bridge the fields of engineering and
+				clinical science.
 			</p>
 		</div>
 
 		<div class="intro-photo">
-			<img src="/assets/images/sandiego_2024.png" alt="Yixiang Gao" />
+			<img
+				src={asset('/assets/images/sandiego_2024.webp')}
+				alt="Yixiang Gao"
+				width="1200"
+				height="900"
+			/>
 		</div>
 	</section>
 
 	<section class="section">
 		<h2>Experience</h2>
 		<div class="bio-list">
-			{#each bioEntries as entry}
+			{#each bioEntries as entry (entry.title)}
 				<div class="bio-item">
 					<div class="bio-years">{entry.years}</div>
 					<div class="bio-main">
@@ -104,13 +174,87 @@
 						<div class="bio-school"><em>{entry.institution}</em></div>
 					</div>
 					<div class="bio-logo">
-						<a href={entry.institutionUrl} aria-label={entry.institution}>
-							<img src={entry.logoSrc} alt={entry.logoAlt} />
+						<a href={entry.institutionUrl} rel="external" aria-label={entry.institution}>
+							<img
+								src={useDarkLogos && entry.darkLogoSrc ? entry.darkLogoSrc : entry.logoSrc}
+								alt={entry.logoAlt}
+							/>
 						</a>
 					</div>
 				</div>
 			{/each}
 		</div>
+	</section>
+
+	<section class="section" id="projects">
+		<h2>Projects</h2>
+		<article class="project-item">
+			<a class="project-media" href="https://justyx404.github.io/spot-edge-nav/" rel="external">
+				<img
+					src="https://justyx404.github.io/spot-edge-nav/static/mission4_sample1_5x.gif"
+					alt="Mission 4 autonomous underground navigation demo with Spot"
+					width="480"
+					height="261"
+					loading="lazy"
+				/>
+			</a>
+			<div class="project-copy">
+				<h3>
+					<a href="https://justyx404.github.io/spot-edge-nav/" rel="external">
+						Efficient Autonomous Navigation of a Quadruped Robot in Underground Mines on Edge
+						Hardware
+					</a>
+				</h3>
+				<p class="project-authors">Y. Gao · K. Awuah-Offei</p>
+				<p class="project-venue">Pre-print · 2026</p>
+				<p class="project-description">
+					Runs entirely on a 40 W Intel NUC without a GPU or network connectivity, achieving 100%
+					success across 20 underground field trials.
+				</p>
+				<nav class="project-links" aria-label="Project resources">
+					<a href="https://justyx404.github.io/spot-edge-nav/" rel="external">Project</a>
+					<span aria-hidden="true">·</span>
+					<a href="https://arxiv.org/pdf/2603.04470" rel="external">Paper</a>
+					<span aria-hidden="true">·</span>
+					<a href="https://github.com/g1y5x3/spot-edge-nav" rel="external">Code</a>
+				</nav>
+			</div>
+		</article>
+
+		<article class="project-item">
+			<a
+				class="project-media"
+				href="http://vigir.missouri.edu/Research/sEMG_dataset.html"
+				rel="external"
+			>
+				<img
+					src={asset('/assets/images/semg-dataset.webp')}
+					alt="Surface electromyography data-collection hardware"
+					width="720"
+					height="326"
+					loading="lazy"
+				/>
+			</a>
+			<div class="project-copy">
+				<h3>
+					<a href="https://doi.org/10.3390/app11104335" rel="external">
+						Classification of Vocal Fatigue Using sEMG: Data Imbalance, Normalization, and the Role
+						of Vocal Fatigue Index Scores
+					</a>
+				</h3>
+				<p class="project-authors">Y. Gao · M. Dietrich · G. N. DeSouza</p>
+				<p class="project-venue">Applied Sciences · 2021</p>
+				<p class="project-description">
+					Examines data imbalance, signal normalization, and VFI-based labeling for machine-learning
+					detection of vocal fatigue using sEMG data from 88 participants.
+				</p>
+				<nav class="project-links" aria-label="sEMG project resources">
+					<a href="http://vigir.missouri.edu/Research/sEMG_dataset.html" rel="external">Project</a>
+					<span aria-hidden="true">·</span>
+					<a href="https://doi.org/10.3390/app11104335" rel="external">Paper</a>
+				</nav>
+			</div>
+		</article>
 	</section>
 </div>
 
@@ -118,7 +262,13 @@
 	:global(body) {
 		margin: 0;
 		font-family:
-			Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+			Inter,
+			ui-sans-serif,
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			'Segoe UI',
+			sans-serif;
 		background: #ffffff;
 		color: #1f2937;
 	}
@@ -136,6 +286,11 @@
 		max-width: 960px;
 		margin: 0 auto;
 		padding: 2.5rem 1.5rem 4rem;
+	}
+
+	#about,
+	#projects {
+		scroll-margin-top: 1rem;
 	}
 
 	.site-header {
@@ -169,8 +324,8 @@
 
 	.intro {
 		display: grid;
-		grid-template-columns: minmax(0, 1.6fr) minmax(220px, 0.8fr);
-		gap: 2rem;
+		grid-template-columns: minmax(0, 1.35fr) minmax(300px, 1fr);
+		gap: 2.5rem;
 		align-items: start;
 		margin-top: 2rem;
 	}
@@ -181,6 +336,10 @@
 		font-size: 1.35rem;
 	}
 
+	.intro-copy h2 {
+		line-height: 1.2;
+	}
+
 	.intro-copy p,
 	.bio-item {
 		font-size: 1rem;
@@ -189,6 +348,10 @@
 
 	.intro-copy p {
 		margin: 0 0 1rem;
+	}
+
+	.intro-photo {
+		margin-top: calc(1.35rem * 1.2 + 1rem);
 	}
 
 	.intro-photo img {
@@ -210,7 +373,7 @@
 
 	.bio-item {
 		display: grid;
-		grid-template-columns: minmax(120px, 0.26fr) minmax(0, 1fr) auto;
+		grid-template-columns: 9rem minmax(0, 1fr) 8rem;
 		gap: 1rem;
 		align-items: center;
 		padding: 1rem 0;
@@ -241,10 +404,73 @@
 		justify-content: flex-end;
 	}
 
+	.bio-logo a {
+		display: flex;
+		width: 8rem;
+		height: 3.6rem;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.bio-logo img {
-		max-height: 2.8rem;
-		max-width: 6rem;
+		display: block;
+		max-width: 100%;
+		max-height: 100%;
 		object-fit: contain;
+	}
+
+	.project-item {
+		display: grid;
+		grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr);
+		gap: 1.5rem;
+		align-items: center;
+		padding: 1rem 0;
+		border-top: 1px solid #e5e7eb;
+		border-bottom: 1px solid #e5e7eb;
+	}
+
+	.project-item + .project-item {
+		border-top: 0;
+	}
+
+	.project-media,
+	.project-media img {
+		display: block;
+	}
+
+	.project-media img {
+		width: 100%;
+		height: auto;
+		border-radius: 10px;
+	}
+
+	.project-copy h3 {
+		margin: 0;
+		font-size: 1.2rem;
+		line-height: 1.4;
+	}
+
+	.project-copy .project-authors {
+		margin: 0.5rem 0 0.15rem;
+		line-height: 1.5;
+	}
+
+	.project-copy .project-venue {
+		margin: 0;
+		color: #4b5563;
+		font-style: italic;
+	}
+
+	.project-copy .project-description {
+		margin: 0.65rem 0 0;
+		line-height: 1.55;
+	}
+
+	.project-links {
+		display: flex;
+		gap: 0.45rem;
+		margin-top: 0.65rem;
+		font-weight: 600;
 	}
 
 	@media (max-width: 760px) {
@@ -261,15 +487,21 @@
 		}
 
 		.intro-photo {
-			max-width: 18rem;
+			max-width: 24rem;
+			margin-top: 0;
 		}
 
-		.bio-item {
+		.bio-item,
+		.project-item {
 			grid-template-columns: 1fr;
 		}
 
 		.bio-logo {
 			justify-content: flex-start;
+		}
+
+		.project-media {
+			max-width: 24rem;
 		}
 	}
 </style>
