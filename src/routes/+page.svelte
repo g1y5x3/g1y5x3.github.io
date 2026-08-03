@@ -114,8 +114,9 @@
 		<nav class="links" aria-label="Primary links">
 			<a href="#about">About</a>
 			<a href="#projects">Projects</a>
-			<a href={asset('/assets/YixiangGao_CV.pdf')}>CV</a>
+			<a href="https://github.com/justyx404">GitHub</a>
 			<a href="https://scholar.google.com/citations?user=7104qXwAAAAJ&hl=en">Google Scholar</a>
+			<a href={asset('/assets/YixiangGao_CV.pdf')}>CV</a>
 		</nav>
 	</header>
 
@@ -189,14 +190,24 @@
 	<section class="section" id="projects">
 		<h2>Projects</h2>
 		<article class="project-item">
-			<a class="project-media" href="https://justyx404.github.io/spot-edge-nav/" rel="external">
-				<img
-					src="https://justyx404.github.io/spot-edge-nav/static/mission4_sample1_5x.gif"
-					alt="Mission 4 autonomous underground navigation demo with Spot"
+			<a
+				class="project-media"
+				href="https://justyx404.github.io/spot-edge-nav/"
+				rel="external"
+				aria-label="Open Spot edge navigation project"
+			>
+				<video
+					src={asset('/assets/videos/spot-edge-nav.mp4')}
+					poster={asset('/assets/images/spot-edge-nav-poster.webp')}
+					aria-label="Mission 4 autonomous underground navigation demo with Spot"
 					width="480"
-					height="261"
-					loading="lazy"
-				/>
+					height="260"
+					autoplay
+					muted
+					loop
+					playsinline
+					preload="metadata"
+				></video>
 			</a>
 			<div class="project-copy">
 				<h3>
@@ -256,6 +267,8 @@
 			</div>
 		</article>
 	</section>
+
+	<footer class="site-footer">© 2026 Yixiang Gao</footer>
 </div>
 
 <style>
@@ -434,11 +447,13 @@
 	}
 
 	.project-media,
-	.project-media img {
+	.project-media img,
+	.project-media video {
 		display: block;
 	}
 
-	.project-media img {
+	.project-media img,
+	.project-media video {
 		width: 100%;
 		height: auto;
 		border-radius: 10px;
@@ -471,6 +486,13 @@
 		gap: 0.45rem;
 		margin-top: 0.65rem;
 		font-weight: 600;
+	}
+
+	.site-footer {
+		margin-top: 2rem;
+		color: #6b7280;
+		font-size: 0.9rem;
+		text-align: right;
 	}
 
 	@media (max-width: 760px) {
