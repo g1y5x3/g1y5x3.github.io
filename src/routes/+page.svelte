@@ -82,8 +82,9 @@
 			years: '2017 - 2024',
 			title: 'Ph.D. Electrical and Computer Engineering',
 			institution: 'University of Missouri - Columbia',
-			institutionUrl: 'https://vigir.missouri.edu/',
-			logoSrc: asset('/assets/images/vigir.jpeg'),
+			institutionUrl: 'http://vigir.missouri.edu/index.html',
+			logoSrc: asset('/assets/images/vigir.png'),
+			darkLogoSrc: asset('/assets/images/vigir_dark.png'),
 			logoAlt: 'ViGIR logo'
 		},
 		{
@@ -91,7 +92,7 @@
 			title: 'B.S. Computer Engineering & Electrical Engineering',
 			institution: 'University of Missouri - Columbia',
 			institutionUrl: 'https://missouri.edu/',
-			logoSrc: asset('/assets/images/MU_logo.svg'),
+			logoSrc: asset('/assets/images/MU_logo.png'),
 			logoAlt: 'Mizzou logo'
 		}
 	];
@@ -228,6 +229,41 @@
 					<a href="https://arxiv.org/pdf/2603.04470" rel="external">Paper</a>
 					<span aria-hidden="true">·</span>
 					<a href="https://github.com/g1y5x3/spot-edge-nav" rel="external">Code</a>
+				</nav>
+			</div>
+		</article>
+
+		<article class="project-item">
+			<a
+				class="project-media"
+				href="https://ieeexplore.ieee.org/abstract/document/10253983"
+				rel="external"
+			>
+				<img
+					src={asset('/assets/images/ga-svm-confounding.webp')}
+					alt="GA-SVM confounding mitigation workflow"
+					width="720"
+					height="722"
+					loading="lazy"
+				/>
+			</a>
+			<div class="project-copy">
+				<h3>
+					<a href="https://ieeexplore.ieee.org/abstract/document/10253983" rel="external">
+						Removal of Confounding Factors using GA-SVM Feature Adaptation: Application on Detection
+						of Vocal Fatigue thru sEMG Classification
+					</a>
+				</h3>
+				<p class="project-authors">Y. Gao · G. N. DeSouza · M. L. Berardi · M. Dietrich</p>
+				<p class="project-venue">IEEE Congress on Evolutionary Computation (CEC) · 2023</p>
+				<p class="project-description">
+					Uses a genetic algorithm to adapt feature vectors, improving SVM generalization while
+					reducing correlation with confounding factors in sEMG vocal-fatigue classification.
+				</p>
+				<nav class="project-links" aria-label="GA-SVM project resources">
+					<a href="https://ieeexplore.ieee.org/abstract/document/10253983" rel="external">Paper</a>
+					<span aria-hidden="true">·</span>
+					<a href="https://github.com/justyx404/Mit_GA" rel="external">Code</a>
 				</nav>
 			</div>
 		</article>
@@ -446,16 +482,19 @@
 		border-top: 0;
 	}
 
-	.project-media,
-	.project-media img,
-	.project-media video {
-		display: block;
+	.project-media {
+		display: flex;
+		aspect-ratio: 16 / 9;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.project-media img,
 	.project-media video {
+		display: block;
 		width: 100%;
-		height: auto;
+		height: 100%;
+		object-fit: contain;
 		border-radius: 10px;
 	}
 
